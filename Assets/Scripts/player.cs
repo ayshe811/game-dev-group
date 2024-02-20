@@ -13,6 +13,8 @@ public class player : MonoBehaviour
     [SerializeField] bool isGrounded;
     public LayerMask platformMask;
     // Start is called before the first frame update
+
+    //I CANT SPELL
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
