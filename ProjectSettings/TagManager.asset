@@ -7,6 +7,7 @@ TagManager:
   - spike
   - flag
   - flag2
+  - teleport
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - platform
   - bullet
   - player
-  - 
-  - 
+  - teleport
+  - wall
   - 
   - 
   - 
