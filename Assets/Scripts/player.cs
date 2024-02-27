@@ -44,7 +44,7 @@ public class player : MonoBehaviour
     void FixedUpdate()
     {
         if (!gmScript.isDashing) rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
-        else { transform.position = Vector2.MoveTowards(transform.position, teleportPlayer.transform.position, dashSpeed); }
+        //else { transform.position = Vector2.MoveTowards(transform.position, teleportPlayer.transform.position, dashSpeed); }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

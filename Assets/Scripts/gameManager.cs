@@ -22,14 +22,17 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TELEPORT
-        if (Input.GetMouseButtonDown(0) && !isDashing)
+        if (Input.GetMouseButtonDown(0) && !isDashing) // dashing is false
         {
             Instantiate(teleportPlayer, player.transform.position, Quaternion.identity);
             teleportMode = true; // activates once the clone is instantiated
-           // isDashing = true;
+            isDashing = true;
         }
-        // TELEPORT
+        else if (Input.GetMouseButtonDown(0) && isDashing) // dashing is true
+        {
+            Destroy (teleportPlayer.gameObject);
+            isDashing = false;
+        }
 
         if (teleportMode)
         {

@@ -31,7 +31,7 @@ public class teleportPlayer : MonoBehaviour
     {
         rb.velocity = transform.up * teleportSpeed; // throwable scythe
 
-        Destroy(gameObject, 2.7f);
+     //   Destroy(gameObject, 2.7f);
         GetComponent<SpriteRenderer>().color = playerColour;
     }
 }
