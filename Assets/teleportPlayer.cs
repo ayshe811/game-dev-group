@@ -19,7 +19,7 @@ public class teleportPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         GameObject.Find("player");
         cursor = GameObject.Find("mouseCursor");
-        teleportSpeed = 40;
+        teleportSpeed = 40; // scythe speed
         playerColour = GetComponent<SpriteRenderer>().color;
         gameManagerScript = GameObject.Find("GameManager").GetComponent<gameManager>();
 
