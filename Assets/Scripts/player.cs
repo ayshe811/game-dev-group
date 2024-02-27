@@ -38,6 +38,8 @@ public class player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "spike") SceneManager.LoadScene("scene_2");
+        if (collision.gameObject.tag == "death") SceneManager.LoadScene("scene_1");
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
