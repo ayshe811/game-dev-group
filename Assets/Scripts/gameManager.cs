@@ -10,20 +10,24 @@ public class gameManager : MonoBehaviour
     public bool teleportMode, isTeleporting;
     public float teleportTimer;
 
+    public bool isDashing;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        isDashing = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         // TELEPORT
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetMouseButtonDown(0) && !isDashing)
         {
             Instantiate(teleportPlayer, player.transform.position, Quaternion.identity);
             teleportMode = true; // activates once the clone is instantiated
+           // isDashing = true;
         }
         // TELEPORT
 

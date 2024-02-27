@@ -15,6 +15,8 @@ public class player : MonoBehaviour
     public LayerMask platformMask;
     public GameObject teleportPlayer;
     public Color playerColour;
+    float dashSpeed;
+    GameObject cursor;
 
     public gameManager gmScript;
     // Start is called before the first frame update
@@ -22,8 +24,11 @@ public class player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         feet = GameObject.Find("feet");
+        cursor = GameObject.Find("mouseCursor");
 
         playerColour = GetComponent<SpriteRenderer>().color;
+        dashSpeed = 10;
+        playerSpeed = 10;
     }
 
     // Update is called once per frame
@@ -34,27 +39,12 @@ public class player : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) rb.velocity = Vector2.up * jumpForce; // jump
 
-        // TELEPORT
-        if (gmScript.teleportMode)
-        {
-            playerSpeed = 0;
-            playerColour.a = 0.5f;
-        }
-        else if (!gmScript.teleportMode)
-        {
-            playerSpeed = 10;
-            playerColour.a = 1;
-        }
-        // TELEPORT
-
-
-
         GetComponent<SpriteRenderer>().color = playerColour;
     }
     void FixedUpdate()
     {
-        if (!gmScript.teleportMode) rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
-        else { }
+        if (!gmScript.isDashing) rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
+        else { transform.position = Vector2.MoveTowards(transform.position, teleportPlayer.transform.position, dashSpeed); }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

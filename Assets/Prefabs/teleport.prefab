@@ -29,12 +29,12 @@ Transform:
   m_GameObject: {fileID: 7182436047811024593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.07, y: 0.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.43, y: 0.43, z: 0.43}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7451305042917955136}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6635143647323330957
 SpriteRenderer:
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4.99
+  m_GravityScale: 0.45
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9f5e10451af6f43a28dc1e665a8ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8289959817160551550
 GameObject:
   m_ObjectHideFlags: 0

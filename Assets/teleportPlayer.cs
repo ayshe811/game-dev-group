@@ -7,6 +7,7 @@ public class teleportPlayer : MonoBehaviour
     float xInput;
     float teleportSpeed;
     GameObject player;
+    GameObject cursor;
 
     gameManager gameManagerScript;
 
@@ -17,7 +18,8 @@ public class teleportPlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         GameObject.Find("player");
-        teleportSpeed = 10;
+        cursor = GameObject.Find("mouseCursor");
+        teleportSpeed = 40;
 
         playerColour = GetComponent<SpriteRenderer>().color;
 
@@ -28,8 +30,8 @@ public class teleportPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        xInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(xInput * teleportSpeed, rb.velocity.y); // lateral movement
+        transform.up = cursor.transform.position - transform.position;
+        rb.velocity = transform.up * teleportSpeed; // throwable scythe
 
         Destroy(gameObject, 2.7f);
 
