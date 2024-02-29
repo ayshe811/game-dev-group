@@ -22,20 +22,31 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        teleportPlayer.transform.position = teleportPlayer.transform.position;
+
         if (Input.GetMouseButtonDown(0) && !isDashing) // dashing is false
         {
-            Instantiate(teleportPlayer, player.transform.position, Quaternion.identity);
+            //Instantiate(teleportPlayer, player.transform.position, Quaternion.identity);
+            teleportPlayer.SetActive(true);
             teleportMode = true; // activates once the clone is instantiated
             isDashing = true;
         }
         else if (Input.GetMouseButtonDown(0) && isDashing) // dashing is true
         {
-            Destroy (teleportPlayer.gameObject);
+            player.transform.position = teleportPlayer.transform.position;
+            teleportPlayer.transform.position = player.transform.position;
+            teleportPlayer.SetActive(false);
+            //Destroy (teleportPlayer.gameObject);
             isDashing = false;
+            teleportMode = false;
         }
+
+
 
         if (teleportMode)
         {
+            
+
             teleportTimer += Time.deltaTime;
             if (teleportTimer >= 2.5f)
             {

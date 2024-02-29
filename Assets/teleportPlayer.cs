@@ -19,17 +19,23 @@ public class teleportPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         GameObject.Find("player");
         cursor = GameObject.Find("mouseCursor");
-        teleportSpeed = 40; // scythe speed
+        teleportSpeed = 10; // scythe speed
         playerColour = GetComponent<SpriteRenderer>().color;
         gameManagerScript = GameObject.Find("GameManager").GetComponent<gameManager>();
-
         transform.up = cursor.transform.position - transform.position; // the scythe will follow the mouse.
+        rb.velocity = transform.up * teleportSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.up * teleportSpeed; // throwable scythe
+
+        if (gameManagerScript.teleportMode == true)
+        {
+            //rb.velocity = transform.up * teleportSpeed; // throwable scythe
+            rb.AddForce(rb.velocity);
+        }
+        
 
      //   Destroy(gameObject, 2.7f);
         GetComponent<SpriteRenderer>().color = playerColour;
