@@ -9,6 +9,7 @@ public class scytheScript : MonoBehaviour
 
     Rigidbody2D rb;
     Vector3 pos;
+    Vector3 mousePos;
 
     public bool activate;
     // Start is called before the first frame update
@@ -24,12 +25,15 @@ public class scytheScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (activate)
+       if (activate)
         {
             transform.up = cursor.transform.position - transform.position;
             rb.velocity = transform.up * 10;
         }
-        else { transform.position = player.transform.position; }
-
+        else 
+        { 
+            transform.position = player.transform.position;
+           // cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
+        }
     }
 }

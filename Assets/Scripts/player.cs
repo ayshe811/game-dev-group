@@ -9,9 +9,11 @@ public class player : MonoBehaviour
     float xInput;
     float playerSpeed;
 
-    GameObject scythe;
-    scytheScript scytheSc;
+    GameObject scythe, cursor;
+    public scytheScript scytheSc;
     [SerializeField] bool isDashing;
+
+    Vector3 mousePos;
     // Start is called before the first frame update
 
     //I CANT SPELL
@@ -21,9 +23,7 @@ public class player : MonoBehaviour
         playerSpeed = 10;
         isDashing = false;
         scythe = GameObject.Find("Circle");
-        scytheSc = GameObject.Find("Circle").GetComponent<scytheScript>();
-
-        //scythe.SetActive(false);
+        cursor = GameObject.Find("cursor");
 
     }
 
@@ -31,22 +31,22 @@ public class player : MonoBehaviour
     void Update()
     {
         xInput = Input.GetAxis("Horizontal");
+        cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
 
-        if (Input.GetMouseButtonDown(0) && !isDashing)
+        if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
         {
-            //scythe.SetActive(true);
             scytheSc.activate = true;
             isDashing = true;
         }
-        else if(Input.GetMouseButtonDown(0) && isDashing)
+        else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
         {
-            //scythe.SetActive(false);
             scytheSc.activate = false;
             transform.position = scythe.transform.position;
 
             isDashing = false;
         }
     }
+
     void FixedUpdate()
     {
         rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
