@@ -23,7 +23,7 @@ public class player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        feet = GameObject.Find("feet");
+        //feet = GameObject.Find("feet");
         cursor = GameObject.Find("mouseCursor");
 
         playerColour = GetComponent<SpriteRenderer>().color;
@@ -35,10 +35,6 @@ public class player : MonoBehaviour
     void Update()
     {
         xInput = Input.GetAxis("Horizontal");
-        isGrounded = Physics2D.OverlapBox(feet.transform.position, feet.GetComponent<CapsuleCollider2D>().bounds.size, 0, platformMask);
-        
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) rb.velocity = Vector2.up * jumpForce; // jump
-
         GetComponent<SpriteRenderer>().color = playerColour;
     }
     void FixedUpdate()
