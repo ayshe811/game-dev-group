@@ -7,11 +7,11 @@ public class player : MonoBehaviour
 {
     Rigidbody2D rb;
     float xInput;
-    public float jumpForce;
     float playerSpeed;
-    private GameObject feet;
-    [SerializeField] bool isGrounded;
-    public LayerMask platformMask;
+
+    GameObject scythe;
+    scytheScript scytheSc;
+    [SerializeField] bool isDashing;
     // Start is called before the first frame update
 
     //I CANT SPELL
@@ -19,17 +19,33 @@ public class player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerSpeed = 10;
+        isDashing = false;
+        scythe = GameObject.Find("Circle");
+        scytheSc = GameObject.Find("Circle").GetComponent<scytheScript>();
 
-        feet = GameObject.Find("feet");
+        //scythe.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         xInput = Input.GetAxis("Horizontal");
-        isGrounded = Physics2D.OverlapBox(feet.transform.position, feet.GetComponent<CapsuleCollider2D>().bounds.size, 0, platformMask);
-        
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) rb.velocity = Vector2.up * jumpForce; // jump
+
+        if (Input.GetMouseButtonDown(0) && !isDashing)
+        {
+            //scythe.SetActive(true);
+            scytheSc.activate = true;
+            isDashing = true;
+        }
+        else if(Input.GetMouseButtonDown(0) && isDashing)
+        {
+            //scythe.SetActive(false);
+            scytheSc.activate = false;
+            transform.position = scythe.transform.position;
+
+            isDashing = false;
+        }
     }
     void FixedUpdate()
     {
@@ -39,7 +55,6 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.tag == "spike") SceneManager.LoadScene("scene_2");
         if (collision.gameObject.tag == "death") SceneManager.LoadScene("scene_1");
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
