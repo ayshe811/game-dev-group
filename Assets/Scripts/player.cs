@@ -12,6 +12,10 @@ public class player : MonoBehaviour
     GameObject scythe, cursor;
     public scytheScript scytheSc;
     public bool isDashing;
+    public LayerMask groundLayer;
+    public bool isGrounded;
+
+    public int scytheCount;
 
     Vector3 mousePos;
     // Start is called before the first frame update
@@ -26,6 +30,8 @@ public class player : MonoBehaviour
         cursor = GameObject.Find("cursor");
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
 
+        scytheCount = 3;
+
     }
 
     // Update is called once per frame
@@ -34,18 +40,32 @@ public class player : MonoBehaviour
         xInput = Input.GetAxis("Horizontal");
         cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
 
-        if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
-        {
-            scytheSc.activate = true;
-            isDashing = true;
+        isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);
+
+        if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount != 0 ) // when throwing the scythe
+        {      
+            if(scytheCount > 0)
+            {
+                scytheSc.activate = true;
+                isDashing = true;
+            }
+            else if (scytheCount == 0)
+            {
+                if (isGrounded)
+                {
+                    scytheSc.activate = true;
+                    isDashing = true;
+                }
+            }
         }
         else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
         {
             transform.position = scythe.transform.position;
-            scytheSc.followPlayer=true;
+            scytheSc.followPlayer = true;
             scytheSc.aim = true;
 
             isDashing = false;
+            scytheCount--;
         }
     }
 
