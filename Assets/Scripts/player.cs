@@ -11,7 +11,7 @@ public class player : MonoBehaviour
 
     GameObject scythe, cursor;
     public scytheScript scytheSc;
-    [SerializeField] bool isDashing;
+    public bool isDashing;
 
     Vector3 mousePos;
     // Start is called before the first frame update
@@ -22,8 +22,9 @@ public class player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerSpeed = 10;
         isDashing = false;
-        scythe = GameObject.Find("Circle");
+        scythe = GameObject.Find("ScytheParent");
         cursor = GameObject.Find("cursor");
+        scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
 
     }
 
@@ -40,8 +41,9 @@ public class player : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
         {
-            scytheSc.activate = false;
             transform.position = scythe.transform.position;
+            scytheSc.followPlayer=true;
+            scytheSc.aim = true;
 
             isDashing = false;
         }
