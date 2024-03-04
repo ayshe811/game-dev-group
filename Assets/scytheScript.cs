@@ -26,7 +26,7 @@ public class scytheScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cursorTransform = cursor.GetComponent<Transform>();
         activate = false;
-        shootingForce = 20f;  //NEEDS FINE TUNING (force for shooting scythe)
+        //shootingForce = 10f;  //NEEDS FINE TUNING (force for shooting scythe)
         aim = true;
         followPlayer = true;
     }
@@ -34,7 +34,7 @@ public class scytheScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.DrawLine(cursor.transform.position, this.transform.position);
         if (aim == true)
         {
             difX = cursorTransform.position.x - transform.position.x;
