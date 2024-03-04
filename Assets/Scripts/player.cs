@@ -9,16 +9,19 @@ public class player : MonoBehaviour
     float xInput;
     float playerSpeed;
 
-    GameObject scythe, cursor;
+    public GameObject scythe, cursor;
     public scytheScript scytheSc;
     public bool isDashing;
 
     Vector3 mousePos;
+    Vector3 initialPos;
     // Start is called before the first frame update
 
     //I CANT SPELL
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         rb = GetComponent<Rigidbody2D>();
         playerSpeed = 10;
         isDashing = false;
@@ -31,8 +34,15 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        initialPos = this.transform.position;
+
         xInput = Input.GetAxis("Horizontal");
-        cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
+        //cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
+
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var allowedPos = mousePos - initialPos;
+        allowedPos = Vector3.ClampMagnitude(allowedPos, 3.0f);
+        cursor.transform.position = initialPos + allowedPos;
 
         if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
         {
