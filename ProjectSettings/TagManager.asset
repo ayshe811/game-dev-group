@@ -8,6 +8,8 @@ TagManager:
   - flag
   - flag2
   - death
+  - scythe
+  - collisonSprite
   layers:
   - Default
   - TransparentFX

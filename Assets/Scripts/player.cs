@@ -48,7 +48,7 @@ public class player : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var allowedPos = mousePos - initialPos;
-        allowedPos = Vector3.ClampMagnitude(allowedPos, 3.0f);
+        allowedPos = Vector3.ClampMagnitude(allowedPos, 2.5f);
         cursor.transform.position = initialPos + allowedPos;
 
         isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);
@@ -81,7 +81,12 @@ public class player : MonoBehaviour
             rb.gravityScale = 0;
             transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
         }
-        else rb.gravityScale = 4.99f;
+        else
+        {
+            //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
+            rb.gravityScale = 4.99f;
+        }
+
     }
     void FixedUpdate()
     {
@@ -97,8 +102,20 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
         if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
 
+       /* if (isLerping && collision.gameObject.tag == "collisonSprite")
+        {
+            isLerping = false;
+            scytheSc.followPlayer = true;
+            scytheSc.aim = true;
+            isDashing = false;
+        }*/
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (isLerping && collision.gameObject.tag == "collisonSprite")
         {
+            print("aaaaa");
+
             isLerping = false;
             scytheSc.followPlayer = true;
             scytheSc.aim = true;

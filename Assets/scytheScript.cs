@@ -60,7 +60,7 @@ public class scytheScript : MonoBehaviour
             aim=false;
 
 
-            coolDown = 5f;
+            coolDown = 2f;
             hasThrown = true;
             finished = false;
             
