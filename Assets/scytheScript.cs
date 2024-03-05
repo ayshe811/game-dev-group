@@ -89,45 +89,15 @@ public class scytheScript : MonoBehaviour
                     if (playerScript.scytheCount == 1)
                     {
                         playerScript.scytheCount = 2;
-                        coolDown = 5f;  
+                        coolDown = 2f;  
                     }
                     if (playerScript.scytheCount == 0)
                     {
                         playerScript.scytheCount = 1;
-                        coolDown = 5f;
+                        coolDown = 2f;
                     }
-
                 }
             }
-            
-            
-
-
-
-        /*    if (coolDown <= 10 && playerScript.scytheCount == 2)
-            {
-                playerScript.scytheCount++;
-                if (playerScript.scytheCount == 3)
-                {
-                    finished = true;
-                    coolDown = 15;
-                }
-            }
-            if (coolDown <= 5 && playerScript.scytheCount == 1) // scythe = 1
-            {
-                playerScript.scytheCount++;
-                if (playerScript.scytheCount == 2)
-                {
-                   // finished = true;
-                }
-            }
-
-            if (coolDown <= 0 && playerScript.scytheCount >= 0)
-            {
-                playerScript.scytheCount = 3;
-                finished = true;
-                
-            }*/
         }
     }
 }
