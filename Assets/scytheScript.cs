@@ -82,7 +82,7 @@ public class scytheScript : MonoBehaviour
                 if (coolDown <= 0f)
                 {
                     
-                    if(playerScript.scytheCount == 2)
+                    if (playerScript.scytheCount == 2)
                     {
                         playerScript.scytheCount = 3;
                     }
