@@ -59,8 +59,8 @@ public class scytheScript : MonoBehaviour
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             aim=false;
 
+            coolDown = 2f;
 
-            coolDown = 5f;
             hasThrown = true;
             finished = false;
             
