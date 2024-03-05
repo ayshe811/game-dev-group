@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 110614976}
   m_Layer: 9
   m_Name: ScytheParent
-  m_TagString: Untagged
+  m_TagString: tpscythe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4874,6 +4874,7 @@ GameObject:
   - component: {fileID: 667745809}
   - component: {fileID: 667745810}
   - component: {fileID: 667745811}
+  - component: {fileID: 667745812}
   m_Layer: 10
   m_Name: block (84)
   m_TagString: Untagged
@@ -5020,6 +5021,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &667745812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667745807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289910693d4e084ab42d97a76170aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &687508455
 GameObject:
   m_ObjectHideFlags: 0
@@ -5570,6 +5583,7 @@ GameObject:
   - component: {fileID: 765731695}
   - component: {fileID: 765731696}
   - component: {fileID: 765731697}
+  - component: {fileID: 765731698}
   m_Layer: 10
   m_Name: block (89)
   m_TagString: Untagged
@@ -5716,6 +5730,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &765731698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765731693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289910693d4e084ab42d97a76170aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &766975254
 GameObject:
   m_ObjectHideFlags: 0
@@ -6141,9 +6167,9 @@ MonoBehaviour:
   scythe: {fileID: 0}
   cursor: {fileID: 0}
   scytheSc: {fileID: 110614974}
-  scytheSc2: {fileID: 0}
   isDashing: 0
   isLerping: 0
+  scytheSc2: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8029,6 +8055,7 @@ GameObject:
   - component: {fileID: 1157063646}
   - component: {fileID: 1157063647}
   - component: {fileID: 1157063648}
+  - component: {fileID: 1157063649}
   m_Layer: 10
   m_Name: block (86)
   m_TagString: Untagged
@@ -8175,6 +8202,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1157063649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157063644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289910693d4e084ab42d97a76170aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1159964192
 GameObject:
   m_ObjectHideFlags: 0
@@ -9097,6 +9136,7 @@ GameObject:
   - component: {fileID: 1249587282}
   - component: {fileID: 1249587283}
   - component: {fileID: 1249587284}
+  - component: {fileID: 1249587285}
   m_Layer: 10
   m_Name: block (87)
   m_TagString: Untagged
@@ -9243,6 +9283,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1249587285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249587280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289910693d4e084ab42d97a76170aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1271547608
 GameObject:
   m_ObjectHideFlags: 0
@@ -11286,6 +11338,7 @@ GameObject:
   - component: {fileID: 1471197988}
   - component: {fileID: 1471197989}
   - component: {fileID: 1471197990}
+  - component: {fileID: 1471197991}
   m_Layer: 10
   m_Name: block (85)
   m_TagString: Untagged
@@ -11432,6 +11485,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1471197991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471197986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289910693d4e084ab42d97a76170aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477082471
 GameObject:
   m_ObjectHideFlags: 0
@@ -12645,6 +12710,7 @@ GameObject:
   - component: {fileID: 1675540625}
   - component: {fileID: 1675540626}
   - component: {fileID: 1675540627}
+  - component: {fileID: 1675540628}
   m_Layer: 10
   m_Name: block (88)
   m_TagString: Untagged
@@ -12791,6 +12857,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1675540628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675540623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289910693d4e084ab42d97a76170aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1689081694
 GameObject:
   m_ObjectHideFlags: 0
@@ -16286,12 +16364,6 @@ Transform:
   - {fileID: 615073307}
   - {fileID: 708597895}
   - {fileID: 1726780423}
-  - {fileID: 667745808}
-  - {fileID: 1471197987}
-  - {fileID: 1157063645}
-  - {fileID: 1249587281}
-  - {fileID: 1675540624}
-  - {fileID: 765731694}
   - {fileID: 1130171476}
   - {fileID: 256847455}
   - {fileID: 1462297185}
@@ -16301,6 +16373,12 @@ Transform:
   - {fileID: 1134299102}
   - {fileID: 1804298016}
   - {fileID: 1827851322}
+  - {fileID: 667745808}
+  - {fileID: 1471197987}
+  - {fileID: 1157063645}
+  - {fileID: 1249587281}
+  - {fileID: 1675540624}
+  - {fileID: 765731694}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16969,7 +17047,7 @@ GameObject:
   - component: {fileID: 2087940161}
   m_Layer: 11
   m_Name: ScytheParent2
-  m_TagString: Untagged
+  m_TagString: scythe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17048,7 +17126,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 2.5
   m_AngularDrag: 0.05
   m_GravityScale: 0.8
   m_Material: {fileID: 0}
@@ -17104,7 +17182,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

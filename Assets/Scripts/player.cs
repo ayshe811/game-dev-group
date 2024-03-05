@@ -52,7 +52,7 @@ public class player : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var allowedPos = mousePos - initialPos;
-        allowedPos = Vector3.ClampMagnitude(allowedPos, 2.5f);
+        allowedPos = Vector3.ClampMagnitude(allowedPos, 3f);
         cursor.transform.position = initialPos + allowedPos;
 
         isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);

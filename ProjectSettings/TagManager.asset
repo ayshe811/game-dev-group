@@ -10,6 +10,7 @@ TagManager:
   - death
   - scythe
   - collisonSprite
+  - tpscythe
   layers:
   - Default
   - TransparentFX
