@@ -1250,7 +1250,7 @@ MonoBehaviour:
   difYABS: 0
   angleTan: 0
   angleBoard: 0
-  coolDown: 5
+  coolDown: 2
   cursorTransform: {fileID: 0}
 --- !u!212 &110614975
 SpriteRenderer:
@@ -6136,6 +6136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1864169010ddfc64b8ee2cf21cddc8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scythe: {fileID: 0}
+  cursor: {fileID: 0}
   scytheSc: {fileID: 110614974}
   isDashing: 0
   groundLayer:
