@@ -13,7 +13,10 @@ public class player : MonoBehaviour
 
     public GameObject scythe, cursor;
     public scytheScript scytheSc;
+
     public bool isDashing, isLerping;
+    public scytheScript2 scytheSc2;
+    
     public LayerMask groundLayer;
     public bool isGrounded;
 
@@ -34,6 +37,7 @@ public class player : MonoBehaviour
         scythe = GameObject.Find("ScytheParent");
         cursor = GameObject.Find("cursor");
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
+        scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
 
         scytheCount = 3;
     }
@@ -75,6 +79,18 @@ public class player : MonoBehaviour
             isLerping = true;
             scytheCount--;
         }
+
+        if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
+        {
+            scytheSc2.followPlayer = false;
+            scytheSc2.activate = true;  
+        }
+        else
+        {
+            
+            scytheSc2.aim = true;
+        }
+        
 
         if (isLerping)
         {

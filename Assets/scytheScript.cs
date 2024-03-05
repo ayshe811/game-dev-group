@@ -57,7 +57,9 @@ public class scytheScript : MonoBehaviour
         {
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
-            aim=false;
+
+            
+            aim =false;
 
 
             coolDown = 2f;
@@ -68,11 +70,13 @@ public class scytheScript : MonoBehaviour
         }
         else 
         {
-           // cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
+            
+            // cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
         }
         if (followPlayer)
         {
             transform.position = player.transform.position;
+            
         }
         if (hasThrown && !finished) // if the player has thrown the scythe and the timer and the cool down period hasn't ended
         {

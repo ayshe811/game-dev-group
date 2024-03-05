@@ -6141,6 +6141,7 @@ MonoBehaviour:
   scythe: {fileID: 0}
   cursor: {fileID: 0}
   scytheSc: {fileID: 110614974}
+  scytheSc2: {fileID: 0}
   isDashing: 0
   isLerping: 0
   groundLayer:
@@ -11831,7 +11832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542453537}
   - component: {fileID: 1542453538}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Triangle(not needed for visual testing)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16963,17 +16964,16 @@ GameObject:
   m_Component:
   - component: {fileID: 2087940166}
   - component: {fileID: 2087940165}
-  - component: {fileID: 2087940164}
   - component: {fileID: 2087940163}
   - component: {fileID: 2087940162}
   - component: {fileID: 2087940161}
-  m_Layer: 9
-  m_Name: ScytheParent (1)
+  m_Layer: 11
+  m_Name: ScytheParent2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2087940161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16986,6 +16986,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1999e7510de85c543918feadccf5c499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aim: 0
+  activate: 0
+  followPlayer: 0
+  hasThrown: 0
+  finished: 0
+  shootingForce: 0
+  difX: 0
+  difY: 0
+  difXABS: 0
+  difYABS: 0
+  angleTan: 0
+  angleBoard: 0
+  coolDown: 0
+  cursorTransform: {fileID: 1619002396}
 --- !u!58 &2087940162
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17034,7 +17048,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2.5
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.8
   m_Material: {fileID: 0}
@@ -17048,32 +17062,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2087940164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087940160}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3372978553c1f8d4f8133ad90cd77081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aim: 0
-  activate: 0
-  followPlayer: 0
-  hasThrown: 0
-  finished: 0
-  shootingForce: 20
-  difX: 0
-  difY: 0
-  difXABS: 0
-  difYABS: 0
-  angleTan: 0
-  angleBoard: 0
-  coolDown: 0
-  cursorTransform: {fileID: 0}
 --- !u!212 &2087940165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17116,7 +17104,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
