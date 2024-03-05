@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +9,11 @@ public class player : MonoBehaviour
     Rigidbody2D rb;
     float xInput;
     float playerSpeed;
+    public float timer;
 
     public GameObject scythe, cursor;
     public scytheScript scytheSc;
-    public bool isDashing;
+    public bool isDashing, isLerping;
     public LayerMask groundLayer;
     public bool isGrounded;
 
@@ -34,7 +36,6 @@ public class player : MonoBehaviour
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
 
         scytheCount = 3;
-
     }
 
     // Update is called once per frame
@@ -47,13 +48,14 @@ public class player : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var allowedPos = mousePos - initialPos;
-        allowedPos = Vector3.ClampMagnitude(allowedPos, 3.0f);
+        allowedPos = Vector3.ClampMagnitude(allowedPos, 2.5f);
         cursor.transform.position = initialPos + allowedPos;
 
         isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);
 
-        if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount != 0 ) // when throwing the scythe
-        {      
+        if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount != 0) // when throwing the scythe
+        {
+            isLerping = false;
             if(scytheCount > 0)
             {
                 scytheSc.activate = true;
@@ -70,15 +72,22 @@ public class player : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
         {
-            transform.position = scythe.transform.position;
-            scytheSc.followPlayer = true;
-            scytheSc.aim = true;
-
-            isDashing = false;
+            isLerping = true;
             scytheCount--;
         }
-    }
 
+        if (isLerping)
+        {
+            rb.gravityScale = 0;
+            transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
+        }
+        else
+        {
+            //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
+            rb.gravityScale = 4.99f;
+        }
+
+    }
     void FixedUpdate()
     {
         rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
@@ -92,5 +101,25 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
         if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
+
+       /* if (isLerping && collision.gameObject.tag == "collisonSprite")
+        {
+            isLerping = false;
+            scytheSc.followPlayer = true;
+            scytheSc.aim = true;
+            isDashing = false;
+        }*/
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (isLerping && collision.gameObject.tag == "collisonSprite")
+        {
+            print("aaaaa");
+
+            isLerping = false;
+            scytheSc.followPlayer = true;
+            scytheSc.aim = true;
+            isDashing = false;
+        }
     }
 }

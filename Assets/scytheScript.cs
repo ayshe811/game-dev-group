@@ -59,8 +59,8 @@ public class scytheScript : MonoBehaviour
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             aim=false;
 
-            coolDown = 2f;
 
+            coolDown = 2f;
             hasThrown = true;
             finished = false;
             
@@ -82,7 +82,7 @@ public class scytheScript : MonoBehaviour
                 if (coolDown <= 0f)
                 {
                     
-                    if(playerScript.scytheCount == 2)
+                    if (playerScript.scytheCount == 2)
                     {
                         playerScript.scytheCount = 3;
                     }
