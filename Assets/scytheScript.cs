@@ -15,7 +15,7 @@ public class scytheScript : MonoBehaviour
     public bool aim;
 
     public bool activate,followPlayer, hasThrown, finished;
-    public float shootingForce;
+    float shootingForce;
     public float difX, difY, difXABS, difYABS;
     public float angleTan, angleBoard;
     public float coolDown;
@@ -52,13 +52,16 @@ public class scytheScript : MonoBehaviour
             transform.eulerAngles = transform.forward * -angleBoard;
         }
 
+        if (playerScript.isGrounded) shootingForce = 20f;
+        else shootingForce = 10f;
+
 
         if (activate) // when the player throws the scythe
         {
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             
-            aim =false;
+            aim = false;
 
             coolDown = 2f;
             hasThrown = true;

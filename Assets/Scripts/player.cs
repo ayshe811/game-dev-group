@@ -61,7 +61,7 @@ public class player : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
         {
             isLerping = false;
-            if(scytheCount > 0)
+            if (scytheCount > 0)
             {
                 scytheSc.activate = true;
                 isDashing = true;
@@ -94,7 +94,7 @@ public class player : MonoBehaviour
 
         if (isLerping)
         {
-            rb.gravityScale = 0;
+            rb.gravityScale = 0f;
             transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
         }
         else
