@@ -15,7 +15,7 @@ public class scytheScript : MonoBehaviour
     public bool aim;
 
     public bool activate,followPlayer, hasThrown, finished;
-    float shootingForce;
+   [SerializeField] float shootingForce;
     public float difX, difY, difXABS, difYABS;
     public float angleTan, angleBoard;
     public float coolDown;
@@ -53,7 +53,7 @@ public class scytheScript : MonoBehaviour
         }
 
         if (playerScript.isGrounded) shootingForce = 20f;
-        else shootingForce = 10f;
+        else shootingForce = 7.5f;
 
 
         if (activate) // when the player throws the scythe
