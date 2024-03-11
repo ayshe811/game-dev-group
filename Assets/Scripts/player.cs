@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class player : MonoBehaviour
 {
     Rigidbody2D rb;
-    float xInput;
+   [SerializeField] float xInput;
     float playerSpeed;
     public float timer;
 
@@ -45,6 +45,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scytheCount = Mathf.Clamp(scytheCount, 0, 3);
         initialPos = this.transform.position;
 
         xInput = Input.GetAxis("Horizontal");
@@ -57,7 +58,7 @@ public class player : MonoBehaviour
 
         isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);
 
-        if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount != 0) // when throwing the scythe
+        if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
         {
             isLerping = false;
             if(scytheCount > 0)
@@ -65,7 +66,7 @@ public class player : MonoBehaviour
                 scytheSc.activate = true;
                 isDashing = true;
             }
-            else if (scytheCount == 0)
+            if (scytheCount == 0)
             {
                 if (isGrounded)
                 {
@@ -86,8 +87,7 @@ public class player : MonoBehaviour
             scytheSc2.activate = true;  
         }
         else
-        {
-            
+        {            
             scytheSc2.aim = true;
         }
         
