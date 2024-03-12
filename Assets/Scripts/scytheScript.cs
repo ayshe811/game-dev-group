@@ -52,8 +52,7 @@ public class scytheScript : MonoBehaviour
             transform.eulerAngles = transform.forward * -angleBoard;
         }
 
-        if (playerScript.isGrounded) shootingForce = 20f;
-        else shootingForce = 7.5f;
+        
 
 
         if (activate) // when the player throws the scythe

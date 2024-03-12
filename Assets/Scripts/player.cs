@@ -54,11 +54,17 @@ public class player : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = false;
             anim.Play("Run");
+
+            //  anim.SetBool("run", true);
+            //  anim.SetBool("idle", false);
         }
         else if (xInput < -0.01f)
         {
             GetComponent<SpriteRenderer>().flipX = true;
             anim.Play("Run");
+
+           //   anim.SetBool("run", true);
+            //  anim.SetBool("idle", false);
         }
         else
         {
@@ -78,9 +84,13 @@ public class player : MonoBehaviour
 
         isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);
 
+    //    if(Input.GetMouseButton(0)) { }
+
         if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
         {
+           
             isLerping = false;
+            
             if (scytheCount > 0)
             {
                 scytheSc.activate = true;
@@ -115,7 +125,7 @@ public class player : MonoBehaviour
         if (isLerping)
         {
             rb.gravityScale = 0f;
-            transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
+            //use physics to move player towards scythe!!!!!!!!!!!!
         }
         else
         {
@@ -137,21 +147,13 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
         if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
-
-       /* if (isLerping && collision.gameObject.tag == "collisonSprite")
-        {
-            isLerping = false;
-            scytheSc.followPlayer = true;
-            scytheSc.aim = true;
-            isDashing = false;
-        }*/
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (isLerping && collision.gameObject.tag == "collisonSprite")
         {
             print("aaaaa");
-
+            rb.gravityScale = 4.99f;
             isLerping = false;
             scytheSc.followPlayer = true;
             scytheSc.aim = true;
