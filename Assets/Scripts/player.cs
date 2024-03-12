@@ -53,22 +53,26 @@ public class player : MonoBehaviour
         if (xInput > 0.01f)
         {
             GetComponent<SpriteRenderer>().flipX = false;
-            anim.Play("Run");
+            //anim.Play("Run");
 
-            //  anim.SetBool("run", true);
-            //  anim.SetBool("idle", false);
+             anim.SetBool("run", true);
+             anim.SetBool("idle", false);
         }
         else if (xInput < -0.01f)
         {
             GetComponent<SpriteRenderer>().flipX = true;
-            anim.Play("Run");
+          //  anim.Play("Run");
 
-           //   anim.SetBool("run", true);
-            //  anim.SetBool("idle", false);
+            anim.SetBool("run", true);
+            anim.SetBool("idle", false);
         }
         else
         {
-            anim.Play("idle");
+            // anim.Play("idle");r
+            anim.SetBool("idle", true);
+            anim.SetBool("run", false);
+
+
         }
 
         scytheCount = Mathf.Clamp(scytheCount, 0, 3);
