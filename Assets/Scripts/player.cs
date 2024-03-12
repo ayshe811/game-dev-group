@@ -22,6 +22,8 @@ public class player : MonoBehaviour
 
     public int scytheCount;
 
+    public Animator anim;
+
     Vector3 mousePos;
     Vector3 initialPos;
     // Start is called before the first frame update
@@ -32,7 +34,7 @@ public class player : MonoBehaviour
         Application.targetFrameRate = 60;
 
         rb = GetComponent<Rigidbody2D>();
-        playerSpeed = 10;
+        playerSpeed = 9;
         isDashing = false;
         scythe = GameObject.Find("ScytheParent");
         cursor = GameObject.Find("cursor");
@@ -40,11 +42,29 @@ public class player : MonoBehaviour
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
 
         scytheCount = 3;
+
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (xInput > 0.01f)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+            anim.Play("Run");
+        }
+        else if (xInput < -0.01f)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+            anim.Play("Run");
+        }
+        else
+        {
+            anim.Play("idle");
+        }
+
         scytheCount = Mathf.Clamp(scytheCount, 0, 3);
         initialPos = this.transform.position;
 
