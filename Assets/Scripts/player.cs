@@ -14,7 +14,7 @@ public class player : MonoBehaviour
     public GameObject scythe, cursor;
     public scytheScript scytheSc;
 
-    public bool isDashing, isLerping;
+    public bool isDashing, isLerping, moving;
     public scytheScript2 scytheSc2;
     
     public LayerMask groundLayer;
@@ -23,6 +23,7 @@ public class player : MonoBehaviour
     public int scytheCount;
 
     public Animator anim;
+    float animTimer;
 
     Vector3 mousePos;
     Vector3 initialPos;
@@ -50,28 +51,36 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (xInput > 0.01f)
+
+        if (/*xInput > 0.2f*/ Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
+            moving = true;
             GetComponent<SpriteRenderer>().flipX = false;
             //anim.Play("Run");
 
              anim.SetBool("run", true);
              anim.SetBool("idle", false);
+
+            animTimer += Time.deltaTime;
         }
-        else if (xInput < -0.01f)
+        else if (/*xInput < -0.2f*/ Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
+            moving = true;
             GetComponent<SpriteRenderer>().flipX = true;
           //  anim.Play("Run");
 
             anim.SetBool("run", true);
             anim.SetBool("idle", false);
+
+            animTimer += Time.deltaTime;
         }
-        else
+        else /*if(xInput == 0)*/
         {
-            // anim.Play("idle");r
+
+            moving = false;
+
             anim.SetBool("idle", true);
             anim.SetBool("run", false);
-
 
         }
 
