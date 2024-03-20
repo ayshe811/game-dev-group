@@ -42,10 +42,7 @@ public class player : MonoBehaviour
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
 
-        scytheCount = 3;
-
-
-        
+        scytheCount = 3;        
     }
 
     // Update is called once per frame
@@ -76,12 +73,10 @@ public class player : MonoBehaviour
         }
         else /*if(xInput == 0)*/
         {
-
             moving = false;
 
             anim.SetBool("idle", true);
             anim.SetBool("run", false);
-
         }
 
         scytheCount = Mathf.Clamp(scytheCount, 0, 3);
@@ -97,47 +92,47 @@ public class player : MonoBehaviour
 
         isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);
 
-    //    if(Input.GetMouseButton(0)) { }
+        //    if(Input.GetMouseButton(0)) { }
 
-        if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
+        if (!pauseScript.isPaused)
         {
-           
-            isLerping = false;
-            
-            if (scytheCount > 0)
+            if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
             {
-                scytheSc.activate = true;
-                isDashing = true;
-            }
-            if (scytheCount == 0)
-            {
-                if (isGrounded)
+                isLerping = false;
+                if (scytheCount > 0)
                 {
                     scytheSc.activate = true;
                     isDashing = true;
                 }
+                if (scytheCount == 0)
+                {
+                    if (isGrounded)
+                    {
+                        scytheSc.activate = true;
+                        isDashing = true;
+                    }
+                }
+            }
+            else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
+            {
+                isLerping = true;
+                scytheCount--;
+            }
+
+            if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
+            {
+                scytheSc2.followPlayer = false;
+                scytheSc2.activate = true;
+            }
+            else
+            {
+                scytheSc2.aim = true;
             }
         }
-        else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
-        {
-            isLerping = true;
-            scytheCount--;
-        }
-
-        if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
-        {
-            scytheSc2.followPlayer = false;
-            scytheSc2.activate = true;  
-        }
-        else
-        {            
-            scytheSc2.aim = true;
-        }
-        
-
         if (isLerping)
         {
             rb.gravityScale = 0f;
+            transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
             //use physics to move player towards scythe!!!!!!!!!!!!
         }
         else
