@@ -20,6 +20,8 @@ public class scytheScript : MonoBehaviour
     public float angleTan, angleBoard;
     public float coolDown;
     public Transform cursorTransform;
+
+    public bool stop;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +54,10 @@ public class scytheScript : MonoBehaviour
             transform.eulerAngles = transform.forward * -angleBoard;
         }
 
-        
+        if (stop)
+        {
+            rb.velocity = Vector3.zero;
+        }
 
 
         if (activate) // when the player throws the scythe
