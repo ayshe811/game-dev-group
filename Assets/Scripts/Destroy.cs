@@ -13,6 +13,8 @@ public class Destroy : MonoBehaviour
     public Sprite StateThree;
     public Sprite Destroyed;
 
+    public float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,26 +26,23 @@ public class Destroy : MonoBehaviour
     {
         if (hitcount == 1)
         {
-            spriterenderer.sprite = StateOne;
+            spriterenderer.sprite = StateTwo;
         }
 
         if (hitcount == 2)
         {
-            spriterenderer.sprite = StateTwo;
-        }
+            timer += Time.deltaTime;
 
-        if (hitcount == 3)
-        {
-            spriterenderer.sprite = StateThree;
-        }
-
-        if (hitcount == 4)
-        {
-            spriterenderer.sprite = Destroyed;
-            this.GetComponent<Collider2D>().enabled = false;
-        }
-
-        
+            if (timer > 0.2f)
+            {
+                spriterenderer.sprite = StateThree;
+            }
+            if (timer > 0.4f)
+            {
+                spriterenderer.sprite = Destroyed;
+                this.GetComponent<Collider2D>().enabled = false;
+            }
+        }      
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

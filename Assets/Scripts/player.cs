@@ -52,6 +52,11 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, this.GetComponent<BoxCollider2D>().bounds.center.y), this.GetComponent<BoxCollider2D>().size, 0,groundLayer))
+        {
+            isGrounded = true;
+        }
+        else isGrounded = false;
         if (Dialogue.activeSelf == true)
         {
             disabled = true;
@@ -68,25 +73,33 @@ public class player : MonoBehaviour
         {
             if (/*xInput > 0.2f*/ Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                moving = true;
                 GetComponent<SpriteRenderer>().flipX = false;
-                //anim.Play("Run");
+                if (isGrounded)
+                {
+                    moving = true;
+                   
+                    //anim.Play("Run");
 
-                anim.SetBool("run", true);
-                anim.SetBool("idle", false);
+                    anim.SetBool("run", true);
+                    anim.SetBool("idle", false);
 
-                animTimer += Time.deltaTime;
+                    animTimer += Time.deltaTime;
+                }
             }
             else if (/*xInput < -0.2f*/ Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                moving = true;
                 GetComponent<SpriteRenderer>().flipX = true;
-                //  anim.Play("Run");
+                if (isGrounded)
+                {
+                    moving = true;
+                  
+                    //  anim.Play("Run");
 
-                anim.SetBool("run", true);
-                anim.SetBool("idle", false);
+                    anim.SetBool("run", true);
+                    anim.SetBool("idle", false);
 
-                animTimer += Time.deltaTime;
+                    animTimer += Time.deltaTime;
+                }
             }
             else /*if(xInput == 0)*/
             {
@@ -107,7 +120,7 @@ public class player : MonoBehaviour
             allowedPos = Vector3.ClampMagnitude(allowedPos, 3f);
             cursor.transform.position = initialPos + allowedPos;
 
-            isGrounded = Physics2D.OverlapBox(transform.position, GetComponent<CapsuleCollider2D>().size, 0, groundLayer);
+            
 
             //    if(Input.GetMouseButton(0)) { }
 
@@ -118,7 +131,7 @@ public class player : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
                 {
                     isLerping = false;
-                    if (scytheCount > 0)
+                    if (scytheCount > 0&&isGrounded)
                     {
                         scytheSc.activate = true;
                         isDashing = true;
@@ -166,7 +179,16 @@ public class player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
+        if (isGrounded) {
+            rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
+        }
+        else
+        {
+           
+
+            anim.SetBool("idle", true);
+            anim.SetBool("run", false);
+        }//need to set falling animation when player is not grounded
 
         if (disabled)
         {
@@ -178,6 +200,11 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.tag == "spike") SceneManager.LoadScene("scene_2");
         if (collision.gameObject.tag == "death") SceneManager.LoadScene("scene_1");
+       
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -5286,8 +5286,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550963241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.17, y: -0.13, z: 0}
-  m_LocalScale: {x: 0.122530885, y: 0.122530885, z: 0.122530885}
+  m_LocalPosition: {x: 6.46, y: -2.83, z: 0}
+  m_LocalScale: {x: 0.11928137, y: 0.11928137, z: 0.11928137}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5442,6 +5442,7 @@ MonoBehaviour:
   StateTwo: {fileID: -1783849453, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
   StateThree: {fileID: 1502916374, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
   Destroyed: {fileID: 537420983, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
+  timer: 0
 --- !u!61 &557961175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5451,7 +5452,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 557961171}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e20f94326f2914946929657c94d5141c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6258,6 +6259,7 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
 --- !u!1 &679312346
 GameObject:
   m_ObjectHideFlags: 0
@@ -6340,6 +6342,7 @@ MonoBehaviour:
   StateTwo: {fileID: 987020264, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
   StateThree: {fileID: 403764901, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
   Destroyed: {fileID: -1278406013, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
+  timer: 0
 --- !u!212 &679312349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7168,6 +7171,7 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
 --- !u!1 &766975254
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,6 +7624,7 @@ GameObject:
   - component: {fileID: 809247257}
   - component: {fileID: 809247256}
   - component: {fileID: 809247255}
+  - component: {fileID: 809247261}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -7806,6 +7811,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &809247261
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809247254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.131543, y: -9.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.2, y: 19.2}
+    newSize: {x: 19.2, y: 19.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &817325412
 GameObject:
   m_ObjectHideFlags: 0
@@ -10325,6 +10375,7 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
 --- !u!1 &1159964192
 GameObject:
   m_ObjectHideFlags: 0
@@ -11514,6 +11565,7 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
 --- !u!1 &1271547608
 GameObject:
   m_ObjectHideFlags: 0
@@ -11870,7 +11922,7 @@ GameObject:
   - component: {fileID: 1356251468}
   m_Layer: 6
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13882,6 +13934,7 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
 --- !u!1 &1477082471
 GameObject:
   m_ObjectHideFlags: 0
@@ -15553,6 +15606,7 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
 --- !u!1 &1686884721
 GameObject:
   m_ObjectHideFlags: 0

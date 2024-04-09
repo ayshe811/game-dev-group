@@ -12,6 +12,7 @@ TagManager:
   - collisonSprite
   - tpscythe
   - Dialogue
+  - platform
   layers:
   - Default
   - TransparentFX
