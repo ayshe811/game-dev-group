@@ -15,6 +15,9 @@ public class Destroy : MonoBehaviour
 
     public float timer;
 
+    public ParticleSystem rubble;
+    bool isHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +27,12 @@ public class Destroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hitcount == 1)
+        if (hitcount == 1 && !isHit)
         {
             spriterenderer.sprite = StateTwo;
+            rubble.Play();
+
+            isHit = true;
         }
 
         if (hitcount == 2)
