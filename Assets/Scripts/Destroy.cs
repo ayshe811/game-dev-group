@@ -16,7 +16,7 @@ public class Destroy : MonoBehaviour
     public float timer;
 
     public ParticleSystem rubble;
-    bool isHit;
+   public bool isHit;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +27,9 @@ public class Destroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hitcount == 1 && !isHit)
+        if (hitcount == 1)
         {
             spriterenderer.sprite = StateTwo;
-            rubble.Play();
-
-            isHit = true;
         }
 
         if (hitcount == 2)
@@ -47,17 +44,24 @@ public class Destroy : MonoBehaviour
             {
                 spriterenderer.sprite = Destroyed;
                 this.GetComponent<Collider2D>().enabled = false;
+
+                timer = 2;
             }
         }      
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "scythe")
+        if (collision.gameObject.tag == "scythe" && !isHit)
         {
             hitcount += 1;
-        } 
-            
-        
+            rubble.Play();
+
+            isHit = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "scythe") isHit = false;
     }
 }

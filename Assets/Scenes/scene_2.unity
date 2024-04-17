@@ -1233,7 +1233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &94754882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5314,6 +5314,7 @@ MonoBehaviour:
   Destroyed: {fileID: 537420983, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
   timer: 0
   rubble: {fileID: 1244914303}
+  isHit: 0
 --- !u!61 &557961175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6132,6 +6133,7 @@ MonoBehaviour:
   Destroyed: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  isHit: 0
 --- !u!1 &679312346
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,6 +6218,7 @@ MonoBehaviour:
   Destroyed: {fileID: -1278406013, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
   timer: 0
   rubble: {fileID: 0}
+  isHit: 0
 --- !u!212 &679312349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6296,7 +6299,7 @@ GameObject:
   - component: {fileID: 687508458}
   m_Layer: 0
   m_Name: flag
-  m_TagString: flag
+  m_TagString: flag2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7046,6 +7049,7 @@ MonoBehaviour:
   Destroyed: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  isHit: 0
 --- !u!1 &766975254
 GameObject:
   m_ObjectHideFlags: 0
@@ -10335,6 +10339,7 @@ MonoBehaviour:
   Destroyed: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  isHit: 0
 --- !u!1 &1159964192
 GameObject:
   m_ObjectHideFlags: 0
@@ -16391,6 +16396,7 @@ MonoBehaviour:
   Destroyed: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  isHit: 0
 --- !u!1 &1271547608
 GameObject:
   m_ObjectHideFlags: 0
@@ -18761,6 +18767,7 @@ MonoBehaviour:
   Destroyed: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  isHit: 0
 --- !u!1 &1477082471
 GameObject:
   m_ObjectHideFlags: 0
@@ -20434,6 +20441,7 @@ MonoBehaviour:
   Destroyed: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  isHit: 0
 --- !u!1 &1686884721
 GameObject:
   m_ObjectHideFlags: 0

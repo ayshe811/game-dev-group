@@ -2421,6 +2421,8 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
+  rubble: {fileID: 0}
 --- !u!50 &207601175
 Rigidbody2D:
   serializedVersion: 4
@@ -7523,7 +7525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &794175776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16463,6 +16465,8 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
+  rubble: {fileID: 0}
 --- !u!50 &1752423931
 Rigidbody2D:
   serializedVersion: 4
@@ -17530,6 +17534,8 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
+  rubble: {fileID: 0}
 --- !u!50 &1875665896
 Rigidbody2D:
   serializedVersion: 4
@@ -19147,6 +19153,8 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
+  rubble: {fileID: 0}
 --- !u!50 &1984961465
 Rigidbody2D:
   serializedVersion: 4
@@ -19324,6 +19332,8 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
+  rubble: {fileID: 0}
 --- !u!50 &1986705813
 Rigidbody2D:
   serializedVersion: 4
@@ -20118,6 +20128,8 @@ MonoBehaviour:
   StateTwo: {fileID: 0}
   StateThree: {fileID: 0}
   Destroyed: {fileID: 0}
+  timer: 0
+  rubble: {fileID: 0}
 --- !u!50 &2050309757
 Rigidbody2D:
   serializedVersion: 4
