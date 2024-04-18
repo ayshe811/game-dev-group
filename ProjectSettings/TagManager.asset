@@ -13,6 +13,7 @@ TagManager:
   - tpscythe
   - Dialogue
   - platform
+  - statue
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - scythe
   - wall
   - scythe2
-  - 
-  - 
+  - statue
+  - death
   - 
   - 
   - 
