@@ -34,12 +34,12 @@ public class Destroy : MonoBehaviour
         if (hitcount == 1)
         {
             spriterenderer.sprite = StateTwo;
-            rubble.Play();
+          //  rubble.Play();
         }
 
         if (hitcount == 2)
         {
-            rubble.Play();
+         //   rubble.Play();
             
             
             timer += Time.deltaTime;
@@ -67,7 +67,7 @@ public class Destroy : MonoBehaviour
         if (collision.gameObject.tag == "scythe" && !isHit)
         {
             hitcount += 1;
-            
+            rubble.Play();
 
             isHit = true;
         }
