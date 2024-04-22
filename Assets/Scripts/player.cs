@@ -134,23 +134,16 @@ public class player : MonoBehaviour
 
             if (!pauseScript.isPaused)
             {
-                if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
+                if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
                 {
                     anim.SetBool("scythe", true);
                     isLerping = false;
-                    if (scytheCount > 0&&isGrounded)
+                    if (isGrounded)
                     {
                         scytheSc.activate = true;
                         isDashing = true;
                     }
-                    if (scytheCount == 0)
-                    {
-                        if (isGrounded)
-                        {
-                            scytheSc.activate = true;
-                            isDashing = true;
-                        }
-                    }
+
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
                 {
