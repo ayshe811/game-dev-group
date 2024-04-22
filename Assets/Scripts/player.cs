@@ -136,6 +136,7 @@ public class player : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0) && !isDashing && scytheCount > 0) // when throwing the scythe
                 {
+                    anim.SetBool("scythe", true);
                     isLerping = false;
                     if (scytheCount > 0&&isGrounded)
                     {
@@ -154,7 +155,9 @@ public class player : MonoBehaviour
                 else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
                 {
                     // throwing = true;
-                    
+
+                    anim.SetBool("scythe", false);
+
                     isLerping = true;
                     rb.velocity = Vector2.zero;
                     scytheSc.stop = true;
