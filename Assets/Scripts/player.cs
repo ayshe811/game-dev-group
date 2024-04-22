@@ -14,7 +14,7 @@ public class player : MonoBehaviour
     public GameObject scythe, cursor;
     public scytheScript scytheSc;
 
-    public bool isDashing, isLerping, moving;
+    public bool isDashing, isLerping, moving,throwing;
     public scytheScript2 scytheSc2;
     
     public LayerMask groundLayer;
@@ -45,7 +45,7 @@ public class player : MonoBehaviour
         cursor = GameObject.Find("cursor");
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
-
+        throwing = false;
         scytheCount = 3;        
     }
 
@@ -57,6 +57,13 @@ public class player : MonoBehaviour
             isGrounded = true;
         }
         else isGrounded = false;
+        if (isGrounded==false)
+        {
+            moving = false;
+
+            anim.SetBool("idle", true);
+            anim.SetBool("run", false);
+        }
         if (Dialogue.activeSelf == true)
         {
             disabled = true;
@@ -146,7 +153,10 @@ public class player : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
                 {
+                    // throwing = true;
+                    
                     isLerping = true;
+                    rb.velocity = Vector2.zero;
                     scytheSc.stop = true;
                     scytheCount--;
                 }
@@ -163,6 +173,7 @@ public class player : MonoBehaviour
             }
             if (isLerping)
             {
+               
                 rb.gravityScale = 0f;
                 transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
                 //use physics to move player towards scythe!!!!!!!!!!!!
@@ -178,15 +189,16 @@ public class player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isGrounded) {
+        if (isGrounded&&isLerping==false) {
             rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
         }
         else
         {
-           
+
 
             anim.SetBool("idle", true);
             anim.SetBool("run", false);
+            
         }//need to set falling animation when player is not grounded
 
         if (disabled)
@@ -220,11 +232,11 @@ public class player : MonoBehaviour
             scytheSc.followPlayer = true;
             scytheSc.aim = true;
             isDashing = false;
+           // throwing = false;
         }
 
         if (collision.gameObject.tag == "Dialogue")
         {
-
             if (Input.GetKey(KeyCode.E))
             {
                 Dialogue.SetActive(true);

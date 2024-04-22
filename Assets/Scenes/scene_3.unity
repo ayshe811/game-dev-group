@@ -976,6 +976,7 @@ MonoBehaviour:
   isDashing: 0
   isLerping: 0
   moving: 0
+  throwing: 0
   scytheSc2: {fileID: 0}
   groundLayer:
     serializedVersion: 2
@@ -2425,6 +2426,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!50 &207601175
 Rigidbody2D:
@@ -10580,7 +10582,7 @@ Transform:
   m_GameObject: {fileID: 1054405720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1.82, y: 1.82, z: 1.82}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1684551000}
@@ -11355,6 +11357,7 @@ MonoBehaviour:
   isDashing: 0
   isLerping: 0
   moving: 0
+  throwing: 0
   scytheSc2: {fileID: 0}
   groundLayer:
     serializedVersion: 2
@@ -16806,6 +16809,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!50 &1752423931
 Rigidbody2D:
@@ -17878,6 +17882,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!50 &1875665896
 Rigidbody2D:
@@ -19499,6 +19504,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!50 &1984961465
 Rigidbody2D:
@@ -19681,6 +19687,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!50 &1986705813
 Rigidbody2D:
@@ -20480,6 +20487,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!50 &2050309757
 Rigidbody2D:
