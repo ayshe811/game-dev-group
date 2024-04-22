@@ -54,7 +54,7 @@ public class player : MonoBehaviour
             isGrounded = true;
         }
         else isGrounded = false;
-        if (isGrounded==false)
+        if (!isGrounded)
         {
             moving = false;
 
@@ -126,6 +126,7 @@ public class player : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
                 {
+                    scytheSc.anim.SetBool("scythe", true);
                     isLerping = false;
                     if (isGrounded)
                     {
@@ -136,6 +137,7 @@ public class player : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
                 {
+                    scytheSc.anim.SetBool("scythe", false);
                     isLerping = true;
                     rb.velocity = Vector2.zero;
                     scytheSc.stop = true;

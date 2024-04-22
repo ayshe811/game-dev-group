@@ -21,7 +21,7 @@ public class scytheScript : MonoBehaviour
     public float coolDown;
     public Transform cursorTransform;
 
-    Animator anim;
+   public Animator anim;
 
     public bool stop;
     // Start is called before the first frame update
@@ -66,7 +66,6 @@ public class scytheScript : MonoBehaviour
 
         if (activate) // when the player throws the scythe
         {
-            anim.SetBool("scythe", true);
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             
@@ -80,10 +79,10 @@ public class scytheScript : MonoBehaviour
         }
         else 
         {
-            anim.SetBool("scythe", false);
 
             // cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
         }
+
         if (followPlayer)
         {
             transform.position = player.transform.position;
