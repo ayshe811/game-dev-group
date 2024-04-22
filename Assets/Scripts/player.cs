@@ -52,7 +52,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapBox(new Vector2(this.GetComponent<CapsuleCollider2D>().bounds.center.x, this.GetComponent<CapsuleCollider2D>().bounds.center.y), this.GetComponent<CapsuleCollider2D>().size, 0,groundLayer))
+        if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, this.GetComponent<BoxCollider2D>().bounds.center.y), this.GetComponent<BoxCollider2D>().size, 0,groundLayer))
         {
             isGrounded = true;
         }
@@ -67,7 +67,6 @@ public class player : MonoBehaviour
         }
 
         scytheSc.stop = false;
-
 
         if (disabled == false)
         {

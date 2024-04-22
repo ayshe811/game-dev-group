@@ -181,7 +181,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: b9408ca03297f1d43bbd61fcdfedf25e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6312,6 +6312,7 @@ MonoBehaviour:
   rubbles: {fileID: 1244914301}
   timer: 0
   rubble: {fileID: 1244914303}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!61 &557961175
 BoxCollider2D:
@@ -7349,6 +7350,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!1 &679312346
 GameObject:
@@ -7436,6 +7438,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!212 &679312349
 SpriteRenderer:
@@ -8269,6 +8272,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!1 &766975254
 GameObject:
@@ -11405,7 +11409,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 7d09a3772f87ee34faf7d2be6ba0bb98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12208,6 +12212,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!1 &1159964192
 GameObject:
@@ -12527,7 +12532,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: c7a8f66de1e761149a358278493ce392, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12626,7 +12631,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: a0c57a235c1a4624db9e9ad03ebab071, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18465,6 +18470,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!1 &1271547608
 GameObject:
@@ -21187,6 +21193,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!1 &1477082471
 GameObject:
@@ -22199,7 +22206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: c7352c4549e741c4aa6bffafea695ed3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23155,6 +23162,7 @@ MonoBehaviour:
   rubbles: {fileID: 0}
   timer: 0
   rubble: {fileID: 0}
+  rubble2: {fileID: 0}
   isHit: 0
 --- !u!1 &1681216386
 GameObject:
@@ -26848,7 +26856,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 223e55e818b32d24b804befac9417250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

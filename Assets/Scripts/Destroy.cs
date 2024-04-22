@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,8 +20,8 @@ public class Destroy : MonoBehaviour
 
     public float timer;
 
-    public ParticleSystem rubble;
-   public bool isHit;
+    public ParticleSystem rubble, rubble2;
+    public bool isHit;
 
     // Start is called before the first frame update
     void Start()
@@ -34,32 +35,32 @@ public class Destroy : MonoBehaviour
         if (hitcount == 1)
         {
             spriterenderer.sprite = StateTwo;
-          //  rubble.Play();
+            //  rubble.Play();
         }
 
         if (hitcount == 2)
         {
-         //   rubble.Play();
-            
-            
+            //   rubble.Play();
+
+
             timer += Time.deltaTime;
-            
+
 
             if (timer > 0.2f)
             {
                 spriterenderer.sprite = null;
                 destroyedstatue.SetActive(true);
-                rubbles.SetActive(false);
+               // rubbles.SetActive(false);
             }
             if (timer > 0.8f)
             {
                 spriterenderer.sprite = Destroyed;
-                
+
                 this.GetComponent<Collider2D>().enabled = false;
 
                 timer = 2;
             }
-        }      
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -67,13 +68,19 @@ public class Destroy : MonoBehaviour
         if (collision.gameObject.tag == "scythe" && !isHit)
         {
             hitcount += 1;
-            rubble.Play();
+
+            if (hitcount == 1) rubble.Play();
+            else if (hitcount == 2) rubble2.Play();
 
             isHit = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "scythe") isHit = false;
+        if (collision.gameObject.tag == "scythe")
+        {
+            isHit = false;
+          //  print("bb");
+        }
     }
 }
