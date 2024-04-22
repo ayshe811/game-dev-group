@@ -89,30 +89,5 @@ public class scytheScript : MonoBehaviour
             transform.position = player.transform.position;
             
         }
-        if (hasThrown && !finished) // if the player has thrown the scythe and the timer and the cool down period hasn't ended
-        {
-            if (playerScript.scytheCount != 3)
-            {
-                coolDown -= Time.deltaTime;
-                if (coolDown <= 0f)
-                {
-                    
-                    if (playerScript.scytheCount == 2)
-                    {
-                        playerScript.scytheCount = 3;
-                    }
-                    if (playerScript.scytheCount == 1)
-                    {
-                        playerScript.scytheCount = 2;
-                        coolDown = 2f;  
-                    }
-                    if (playerScript.scytheCount == 0)
-                    {
-                        playerScript.scytheCount = 1;
-                        coolDown = 2f;
-                    }
-                }
-            }
-        }
     }
 }

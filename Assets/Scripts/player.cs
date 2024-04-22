@@ -20,8 +20,6 @@ public class player : MonoBehaviour
     public LayerMask groundLayer;
     public bool isGrounded;
 
-    public int scytheCount;
-
     public Animator anim;
     float animTimer;
 
@@ -46,7 +44,6 @@ public class player : MonoBehaviour
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
         throwing = false;
-        scytheCount = 3;        
     }
 
     // Update is called once per frame
@@ -115,7 +112,6 @@ public class player : MonoBehaviour
                 anim.SetBool("run", false);
             }
 
-            scytheCount = Mathf.Clamp(scytheCount, 0, 3);
             initialPos = this.transform.position;
 
             xInput = Input.GetAxis("Horizontal");
@@ -126,17 +122,10 @@ public class player : MonoBehaviour
             allowedPos = Vector3.ClampMagnitude(allowedPos, 3f);
             cursor.transform.position = initialPos + allowedPos;
 
-            
-
-            //    if(Input.GetMouseButton(0)) { }
-
-            
-
             if (!pauseScript.isPaused)
             {
                 if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
                 {
-                    anim.SetBool("scythe", true);
                     isLerping = false;
                     if (isGrounded)
                     {
@@ -147,14 +136,9 @@ public class player : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
                 {
-                    // throwing = true;
-
-                    anim.SetBool("scythe", false);
-
                     isLerping = true;
                     rb.velocity = Vector2.zero;
                     scytheSc.stop = true;
-                    scytheCount--;
                 }
 
                 if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
