@@ -34,6 +34,7 @@ public class delete : MonoBehaviour
         if (collision.gameObject.tag == "death")
         {
             start = true;
+            print("start");
             
         }
     }
