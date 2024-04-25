@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
+    public int hp = 5;
+
     Rigidbody2D rb;
    [SerializeField] float xInput;
     float playerSpeed;
@@ -28,7 +31,16 @@ public class player : MonoBehaviour
     Vector3 mousePos;
     Vector3 initialPos;
 
+    public GameObject life;
+
     public bool disabled;
+    public Sprite hp4;
+    public Sprite hp3;
+    public Sprite hp2;
+    public Sprite hp1;
+
+    public bool hit = false;
+    public float invince;
     // Start is called before the first frame update
 
     //I CANT SPELL
@@ -49,6 +61,41 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hit == true)
+        {
+            invince += Time.deltaTime;
+            if (invince >= 2)
+            {
+                hit = false;
+            }
+            
+        }
+
+        if (hp == 4)
+        {
+            life.GetComponent<Image>().sprite = hp4;
+        }
+
+        if (hp == 3)
+        {
+            life.GetComponent<Image>().sprite = hp3;
+        }
+
+        if (hp == 2)
+        {
+            life.GetComponent<Image>().sprite = hp2;
+        }
+
+        if (hp == 1)
+        {
+            life.GetComponent<Image>().sprite = hp1;
+        }
+
+        if (hp == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, this.GetComponent<BoxCollider2D>().bounds.center.y), this.GetComponent<BoxCollider2D>().size, 0,groundLayer))
         {
             isGrounded = true;
@@ -192,6 +239,7 @@ public class player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "spike") SceneManager.LoadScene("scene_2");
+        
         if (collision.gameObject.tag == "death") SceneManager.LoadScene("scene_1");
        
     }
@@ -202,7 +250,13 @@ public class player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
-        if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");        
+        if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
+
+        if (collision.gameObject.tag == "Bullet" && hit == false) 
+        {
+            hp--;
+            hit = true;
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

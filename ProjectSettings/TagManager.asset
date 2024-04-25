@@ -14,6 +14,7 @@ TagManager:
   - Dialogue
   - platform
   - statue
+  - Bullet
   layers:
   - Default
   - TransparentFX
