@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4211319084348741523}
-  - component: {fileID: 4899013578908146313}
   - component: {fileID: 5305563653003915743}
   - component: {fileID: 4841695392280301793}
   - component: {fileID: 3543253587757356951}
@@ -36,27 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!95 &4899013578908146313
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159108567915588316}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 99c6b1457bd5ea746a05344f4c4c6c01, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5305563653003915743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb34b2563ff137d48ba3899c7ab2dc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
+  bulletSpeed: 10
 --- !u!50 &4841695392280301793
 Rigidbody2D:
   serializedVersion: 4
@@ -217,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2fce580a481a0cb4687b2a5d5ffea07d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8e389a91129b7b4fbaf1ba9d408ba14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -238,7 +216,7 @@ Animator:
   m_GameObject: {fileID: 4476147037234076004}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 99c6b1457bd5ea746a05344f4c4c6c01, type: 2}
+  m_Controller: {fileID: 9100000, guid: a07d087e06437fb47842adb71a3e2637, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
