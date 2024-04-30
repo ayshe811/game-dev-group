@@ -245,7 +245,7 @@ public class player : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -278,5 +278,9 @@ public class player : MonoBehaviour
                 Dialogue.SetActive(true);
             }
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+       if(collision.gameObject.tag == "Bullet") hit = false;
     }
 }
