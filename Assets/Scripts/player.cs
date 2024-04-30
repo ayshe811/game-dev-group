@@ -278,6 +278,8 @@ public class player : MonoBehaviour
                 Dialogue.SetActive(true);
             }
         }
+        if (collision.gameObject.tag == "Bullet") hit = true;
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
