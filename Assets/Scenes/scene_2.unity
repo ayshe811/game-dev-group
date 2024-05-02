@@ -9849,6 +9849,7 @@ MonoBehaviour:
   isGrounded: 0
   anim: {fileID: 0}
   Dialogue: {fileID: 0}
+  hpbar: {fileID: 0}
   life: {fileID: 0}
   disabled: 0
   hp4: {fileID: 0}
@@ -9970,6 +9971,7 @@ MonoBehaviour:
   isGrounded: 0
   anim: {fileID: 809247258}
   Dialogue: {fileID: 92514075}
+  hpbar: {fileID: 140977332}
   life: {fileID: 140977332}
   disabled: 0
   hp4: {fileID: 21300000, guid: e1fcc2e221fe5f44bb5df316e14a4f76, type: 3}

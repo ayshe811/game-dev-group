@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +29,8 @@ public class player : MonoBehaviour
     float animTimer;
 
     public GameObject Dialogue;
+
+    public GameObject hpbar;
 
     Vector3 mousePos;
     Vector3 initialPos;
@@ -56,6 +60,8 @@ public class player : MonoBehaviour
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
         throwing = false;
+
+        hpbar.GetComponent<Animator>().SetInteger("Health", 5);
     }
 
     // Update is called once per frame
@@ -67,28 +73,32 @@ public class player : MonoBehaviour
             if (invince >= 2)
             {
                 hit = false;
-            }
-            
+            }   
         }
 
         if (hp == 4)
         {
-            life.GetComponent<Image>().sprite = hp4;
+            //life.GetComponent<Image>().sprite = hp4;
+
+            hpbar.GetComponent<Animator>().Play("-2hp");
         }
 
         if (hp == 3)
         {
-            life.GetComponent<Image>().sprite = hp3;
+            //life.GetComponent<Image>().sprite = hp3;
+            hpbar.GetComponent<Animator>().SetInteger("Health", 3);
         }
 
         if (hp == 2)
         {
-            life.GetComponent<Image>().sprite = hp2;
+            //life.GetComponent<Image>().sprite = hp2;
+            hpbar.GetComponent<Animator>().SetInteger("Health", 2);
         }
 
         if (hp == 1)
         {
-            life.GetComponent<Image>().sprite = hp1;
+            //life.GetComponent<Image>().sprite = hp1;
+            hpbar.GetComponent<Animator>().SetInteger("Health", 1);
         }
 
         if (hp == 0)
@@ -249,6 +259,7 @@ public class player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject hpbar = GameObject.Find("HP");
         if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
         if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
 
@@ -256,6 +267,7 @@ public class player : MonoBehaviour
         {
             hp--;
             hit = true;
+            hpbar.GetComponent<Animator>().SetBool("isHit", true);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -283,6 +295,11 @@ public class player : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-       if(collision.gameObject.tag == "Bullet") hit = false;
+        GameObject hpbar = GameObject.Find("HP");
+        if (collision.gameObject.tag == "Bullet")
+        {
+            hit = false;
+            hpbar.GetComponent<Animator>().SetBool("isHit", false);
+        }
     }
 }
