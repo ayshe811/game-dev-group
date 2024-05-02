@@ -9704,6 +9704,7 @@ MonoBehaviour:
   hp1: {fileID: 0}
   hit: 0
   invince: 0
+  deathtimer: 0
 --- !u!1 &809247254
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,6 +9828,7 @@ MonoBehaviour:
   hp1: {fileID: 21300000, guid: f43833f076d980147945792c1b9299bc, type: 3}
   hit: 0
   invince: 0
+  deathtimer: 0
 --- !u!95 &809247258
 Animator:
   serializedVersion: 5
