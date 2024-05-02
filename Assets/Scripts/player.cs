@@ -45,6 +45,7 @@ public class player : MonoBehaviour
 
     public bool hit = false;
     public float invince;
+    public float deathtimer;
     // Start is called before the first frame update
 
     //I CANT SPELL
@@ -71,24 +72,28 @@ public class player : MonoBehaviour
         if (hit == true)
         {
             invince += Time.deltaTime;
-            if (invince >= 2)
+            if (invince >= 1)
             {
+                invince = 0f;
                 hit = false;
+                
             }   
         }
 
-        if (hp == 4)
+        if (hp == 4 && hit == true)
         {
             //life.GetComponent<Image>().sprite = hp4;
 
             // hpbar.GetComponent<Animator>().Play("-2hp"); // - doesn't seem to be assigned in level 3!!!
-            hpbar.GetComponent<Animator>().SetInteger("Health", 4);// - this seems logical?
+            hpbar.GetComponent<Animator>().SetInteger("Health", 4);
+            // - this seems logical?
         }
 
-        if (hp == 3)
+        if (hp == 3 && hit == true)
         {
             //life.GetComponent<Image>().sprite = hp3;
             hpbar.GetComponent<Animator>().SetInteger("Health", 3);
+            
         }
 
         if (hp == 2)
@@ -105,7 +110,12 @@ public class player : MonoBehaviour
 
         if (hp == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            hpbar.GetComponent<Animator>().SetInteger("Health", 0);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.25f)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
 
         if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, this.GetComponent<BoxCollider2D>().bounds.center.y), this.GetComponent<BoxCollider2D>().size, 0,groundLayer))
@@ -303,8 +313,8 @@ public class player : MonoBehaviour
         GameObject hpbar = GameObject.Find("HP");
         if (collision.gameObject.tag == "Bullet")
         {
-            hit = false;
-            hpbar.GetComponent<Animator>().SetBool("isHit", false);
+            //hit = false;
+            life.GetComponent<Animator>().SetBool("isHit", false);
         }
     }
 }
