@@ -1200,7 +1200,7 @@ MonoBehaviour:
     to its location
   - You can also right click to send out a scythe projectile to break statues in
     your way. Good Luck
-  typespeed: 0.05
+  typespeed: 0.01
   DialogueCamera: {fileID: 1528995439}
 --- !u!4 &92514077
 Transform:
@@ -4874,7 +4874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7528eeb7e92bc364ea084ca516569c28, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8bb45c22607beb4cace3d48517b41ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10193,6 +10193,7 @@ MonoBehaviour:
   hp1: {fileID: 0}
   hit: 0
   invince: 0
+  deathtimer: 0
 --- !u!1 &809247254
 GameObject:
   m_ObjectHideFlags: 0
@@ -10307,8 +10308,8 @@ MonoBehaviour:
   isGrounded: 0
   anim: {fileID: 809247258}
   Dialogue: {fileID: 92514075}
-  hpbar: {fileID: 0}
-  life: {fileID: 0}
+  hpbar: {fileID: 349184226}
+  life: {fileID: 349184226}
   disabled: 0
   hp4: {fileID: 0}
   hp3: {fileID: 0}
@@ -10316,6 +10317,7 @@ MonoBehaviour:
   hp1: {fileID: 0}
   hit: 0
   invince: 0
+  deathtimer: 0
 --- !u!95 &809247258
 Animator:
   serializedVersion: 5
