@@ -61,7 +61,8 @@ public class player : MonoBehaviour
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
         throwing = false;
 
-        hpbar.GetComponent<Animator>().SetInteger("Health", 5);
+        hpbar.GetComponent<Animator>().SetInteger("Health", (int)5);
+
     }
 
     // Update is called once per frame
@@ -80,7 +81,8 @@ public class player : MonoBehaviour
         {
             //life.GetComponent<Image>().sprite = hp4;
 
-            hpbar.GetComponent<Animator>().Play("-2hp");
+            // hpbar.GetComponent<Animator>().Play("-2hp"); // - doesn't seem to be assigned in level 3!!!
+            hpbar.GetComponent<Animator>().SetInteger("Health", 4);// - this seems logical?
         }
 
         if (hp == 3)
@@ -265,11 +267,12 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
         if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
 
-        if (collision.gameObject.tag == "Bullet" && hit == false) 
+        if (collision.gameObject.tag == "Bullet" && hit == false)
         {
             hp--;
+            print("///////" + hp);
             hit = true;
-            hpbar.GetComponent<Animator>().SetBool("isHit", true);
+            //  hpbar.GetComponent<Animator>().SetBool("isHit", true);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -292,7 +295,7 @@ public class player : MonoBehaviour
                 Dialogue.SetActive(true);
             }
         }
-        if (collision.gameObject.tag == "Bullet") hit = true;
+       // if (collision.gameObject.tag == "Bullet") hit = true;
 
     }
     private void OnTriggerExit2D(Collider2D collision)
