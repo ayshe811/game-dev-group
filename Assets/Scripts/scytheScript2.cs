@@ -8,6 +8,8 @@ public class scytheScript2 : MonoBehaviour
     GameObject cursor;
     player playerScript;
 
+    public Sprite Circle;
+
     Rigidbody2D rb;
     Vector3 pos;
     Vector3 mousePos;
@@ -19,6 +21,9 @@ public class scytheScript2 : MonoBehaviour
     public float angleTan, angleBoard;
     public float coolDown;
     public Transform cursorTransform;
+
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,13 +87,15 @@ public class scytheScript2 : MonoBehaviour
             if (coolDown <= 0)
             {
                 finished = true;
+                print("ella");
             }
-            
+
         }
 
         if (finished == true)
         {
             followPlayer = true;
+            this.GetComponent<SpriteRenderer>().sprite = Circle;
             
             
         }
@@ -96,5 +103,9 @@ public class scytheScript2 : MonoBehaviour
         {
             followPlayer = false;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "statue") finished = true;
     }
 }

@@ -16,7 +16,7 @@ public class player : MonoBehaviour
     float playerSpeed;
     public float timer;
 
-    public GameObject scythe, cursor;
+    public GameObject scythe, cursor, scythe2;
     public scytheScript scytheSc;
 
     public bool isDashing, isLerping, moving,throwing;
@@ -202,12 +202,14 @@ public class player : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
                 {
+                    scytheSc2.anim.SetBool("scythe", true);
                     scytheSc2.followPlayer = false;
                     scytheSc2.activate = true;
                 }
                 else
                 {
                     scytheSc2.aim = true;
+                    scytheSc2.anim.SetBool("scythe", false);
                 }
             }
             if (isLerping)
