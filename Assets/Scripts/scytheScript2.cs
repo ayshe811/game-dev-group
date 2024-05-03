@@ -98,7 +98,7 @@ public class scytheScript2 : MonoBehaviour
         if (collision.gameObject.tag == "statue")
         {
             finished = true;
-            coolDown = 0;
+           // coolDown = 0;
         }
     }
 }
