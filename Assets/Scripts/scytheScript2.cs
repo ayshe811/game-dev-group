@@ -59,24 +59,15 @@ public class scytheScript2 : MonoBehaviour
 
         if (activate) // when the player throws the scythe
         {
-
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
-            
             aim = false;
-
-
             coolDown = 1f;
             hasThrown = true;
             finished = false;
-
             activate = false;
         }
         else
-        {
-            
-            // cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
-        }
         if (followPlayer)
         {
             transform.position = player.transform.position;
@@ -95,9 +86,7 @@ public class scytheScript2 : MonoBehaviour
         if (finished == true)
         {
             followPlayer = true;
-            this.GetComponent<SpriteRenderer>().sprite = Circle;
-            
-            
+            this.GetComponent<SpriteRenderer>().sprite = Circle;            
         }
         else
         {
@@ -106,6 +95,10 @@ public class scytheScript2 : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "statue") finished = true;
+        if (collision.gameObject.tag == "statue")
+        {
+            finished = true;
+            coolDown = 0;
+        }
     }
 }

@@ -996,6 +996,7 @@ MonoBehaviour:
   hp1: {fileID: 0}
   hit: 0
   invince: 0
+  deathtimer: 0
 --- !u!95 &89402388
 Animator:
   serializedVersion: 5
@@ -13004,7 +13005,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 2
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -19355,6 +19356,7 @@ MonoBehaviour:
   hp1: {fileID: 0}
   hit: 0
   invince: 0
+  deathtimer: 0
 --- !u!70 &1153989724
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

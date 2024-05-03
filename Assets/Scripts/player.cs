@@ -24,6 +24,7 @@ public class player : MonoBehaviour
     
     public LayerMask groundLayer;
     public bool isGrounded;
+    SpriteRenderer playerSprite;
 
     public Animator anim;
     float animTimer;
@@ -60,6 +61,7 @@ public class player : MonoBehaviour
         cursor = GameObject.Find("cursor");
         scytheSc=GameObject.Find("ScytheParent").GetComponent<scytheScript>();
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
+        playerSprite = GetComponent<SpriteRenderer>();
         throwing = false;
 
         hpbar.GetComponent<Animator>().SetInteger("Health", (int)5);
@@ -75,8 +77,7 @@ public class player : MonoBehaviour
             if (invince >= 1)
             {
                 invince = 0f;
-                hit = false;
-                
+                hit = false;               
             }   
         }
 
@@ -118,10 +119,10 @@ public class player : MonoBehaviour
             }
         }
 
-        if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, this.GetComponent<BoxCollider2D>().bounds.center.y), this.GetComponent<BoxCollider2D>().size, 0,groundLayer))
-        {
-            isGrounded = true;
-        }
+        if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, 
+            this.GetComponent<BoxCollider2D>().bounds.center.y), 
+            this.GetComponent<BoxCollider2D>().size, 0, groundLayer)) isGrounded = true;
+
         else isGrounded = false;
         if (!isGrounded)
         {
