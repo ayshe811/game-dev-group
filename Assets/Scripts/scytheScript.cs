@@ -12,7 +12,8 @@ public class scytheScript : MonoBehaviour
     Rigidbody2D rb;
     Vector3 pos;
     Vector3 mousePos;
-    public bool aim;
+    public bool aim, isGrounded;
+    public LayerMask groundLayer;
 
     public bool activate,followPlayer, hasThrown, finished;
    [SerializeField] float shootingForce;
@@ -38,13 +39,16 @@ public class scytheScript : MonoBehaviour
         followPlayer = true;
         hasThrown = false;
         finished = false;
-
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if (Physics2D.OverlapCircle(new Vector2(this.GetComponent<CircleCollider2D>().bounds.center.x,
+        //    this.GetComponent<CircleCollider2D>().bounds.center.y),
+        //    this.GetComponent<CircleCollider2D>().radius, 0, groundLayer)) isGrounded = true;
+
         Debug.DrawLine(cursor.transform.position, this.transform.position);
         if (aim == true)
         {
@@ -58,35 +62,29 @@ public class scytheScript : MonoBehaviour
             transform.eulerAngles = transform.forward * -angleBoard;
         }
 
-        if (stop)
-        {
-            rb.velocity = Vector3.zero;
-        }
-
-
+        if (stop) rb.velocity = Vector3.zero;
         if (activate) // when the player throws the scythe
         {
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
-            
             aim = false;
-
             coolDown = 2f;
             hasThrown = true;
             finished = false;
-            
             activate = false;
         }
-        else 
-        {
+        else //followPlayer = true;
 
-            // cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
-        }
+        if (isGrounded) followPlayer = true;
+        if (followPlayer) transform.position = player.transform.position;
+    }
 
-        if (followPlayer)
-        {
-            transform.position = player.transform.position;
-            
-        }
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "platform") isGrounded = true;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
     }
 }

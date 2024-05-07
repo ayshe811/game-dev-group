@@ -9,6 +9,7 @@ public class Destroy : MonoBehaviour
     public int hitcount;
 
     public GameObject destroyedstatue;
+    public scytheScript2 scyScrp2;
 
     public SpriteRenderer spriterenderer;
     public Sprite StateOne;
@@ -40,11 +41,8 @@ public class Destroy : MonoBehaviour
 
         if (hitcount == 2)
         {
-            //   rubble.Play();
-
-
             timer += Time.deltaTime;
-
+            this.GetComponent<Collider2D>().enabled = false;
 
             if (timer > 0.2f)
             {
@@ -54,10 +52,8 @@ public class Destroy : MonoBehaviour
             }
             if (timer > 0.8f)
             {
+               // this.GetComponent<Collider2D>().enabled = false;
                 spriterenderer.sprite = Destroyed;
-
-                this.GetComponent<Collider2D>().enabled = false;
-
                 timer = 2;
             }
         }
@@ -65,7 +61,7 @@ public class Destroy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "scythe" && !isHit)
+        if (collision.gameObject.tag == "scythe" && !isHit /*&& scyScrp2.activate*/)
         {
             hitcount += 1;
 

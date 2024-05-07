@@ -203,9 +203,8 @@ public class player : MonoBehaviour
                         scytheSc.activate = true;
                         isDashing = true;
                     }
-
                 }
-                else if (Input.GetMouseButtonDown(0) && isDashing) // after dashing
+                else if (Input.GetMouseButtonDown(0) && isDashing) // dashing
                 {
                     scytheSc.anim.SetBool("scythe", false);
                     isLerping = true;
@@ -219,15 +218,15 @@ public class player : MonoBehaviour
                     scytheSc2.followPlayer = false;
                     scytheSc2.activate = true;
                 }
-                else
+                else if(scytheSc2.finished == false)
                 {
+                  //  scytheSc2.followPlayer = true;
                     scytheSc2.aim = true;
                     scytheSc2.anim.SetBool("scythe", false);
                 }
             }
             if (isLerping)
-            {
-               
+            {               
                 rb.gravityScale = 0f;
                 transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
                 //use physics to move player towards scythe!!!!!!!!!!!!
@@ -248,8 +247,6 @@ public class player : MonoBehaviour
         }
         else
         {
-
-
             anim.SetBool("idle", true);
             anim.SetBool("run", false);
             

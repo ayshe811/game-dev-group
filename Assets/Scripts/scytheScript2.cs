@@ -70,7 +70,7 @@ public class scytheScript2 : MonoBehaviour
         else
         if (followPlayer)
         {
-            transform.position = player.transform.position;
+           transform.position = player.transform.position;
         }
         if (hasThrown && !finished) // if the player has thrown the scythe and the timer and the cool down period hasn't ended
         {
@@ -97,6 +97,7 @@ public class scytheScript2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "statue")
         {
+            anim.SetBool("scythe", false);
             finished = true;
            // coolDown = 0;
         }

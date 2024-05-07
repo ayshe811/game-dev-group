@@ -1568,7 +1568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &94754882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6676,7 +6676,7 @@ GameObject:
   - component: {fileID: 557961174}
   m_Layer: 0
   m_Name: gargoyle_states_0
-  m_TagString: Untagged
+  m_TagString: statue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6762,6 +6762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 850318852}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 557961172}
   StateOne: {fileID: 1996434623, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
   StateTwo: {fileID: -1783849453, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
@@ -7930,6 +7931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -8018,6 +8020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 679312349}
   StateOne: {fileID: -1171951651, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
   StateTwo: {fileID: 987020264, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
@@ -8852,6 +8855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -13116,6 +13120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -19378,6 +19383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -27084,6 +27090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -29074,6 +29081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -29771,6 +29779,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aim: 0
+  isGrounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   activate: 0
   followPlayer: 0
   hasThrown: 0
