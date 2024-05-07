@@ -5,10 +5,13 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public float timer;
+    public Animator animator;
     //public GameObject Bullet;
 
 
     public GameObject BulletPrefab;
+
+    public bool IsShooting;
     
 
     // Start is called before the first frame update
@@ -39,8 +42,28 @@ public class Shoot : MonoBehaviour
         if (timer >= 2f)
         {
           //  Bullet.SetActive(true);
-          Instantiate(BulletPrefab, transform.position, transform.rotation);
-            timer = 0;
+          
+            //IsShooting = true;
+
+            animator.Play("shoot");
+            this.GetComponent<Animator>().SetBool("IsShooting", true); 
+            
+            
+        }
+
+        if (timer >= 3f)
+        {
+            Instantiate(BulletPrefab, transform.position, transform.rotation);
+            timer = 0f;
+
+
+        }
+
+
+        if (timer == 0)
+        {
+            this.GetComponent<Animator>().SetBool("IsShooting", false);
+            //IsShooting = false;
         }
 
 
