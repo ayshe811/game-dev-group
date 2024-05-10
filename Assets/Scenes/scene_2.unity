@@ -34388,7 +34388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
+  animator: {fileID: 0}
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
+  IsShooting: 0
 --- !u!61 &1967892243
 BoxCollider2D:
   m_ObjectHideFlags: 0
