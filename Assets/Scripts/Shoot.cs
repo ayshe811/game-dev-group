@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public float timer;
     Animator animator;
+    public float startTimer;
     //public GameObject Bullet;
 
 
@@ -24,8 +25,8 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-
+        
+        startTimer -= Time.deltaTime;
         //if(timer >= 2f)
         //{
         //    Bullet.SetActive(true);
@@ -39,34 +40,36 @@ public class Shoot : MonoBehaviour
         //}
 
         //do instantiate and destroy
-
-        if (timer >= 2f)
+        if (startTimer <= 0)
         {
-          //  Bullet.SetActive(true);
-          
-            //IsShooting = true;
+            timer += Time.deltaTime;
+            if (timer >= 2f)
+            {
+                //  Bullet.SetActive(true);
 
-            animator.Play("shoot");
-            this.GetComponent<Animator>().SetBool("IsShooting", true); 
-            
-            
+                //IsShooting = true;
+
+                animator.Play("shoot");
+                this.GetComponent<Animator>().SetBool("IsShooting", true);
+
+
+            }
+
+            if (timer >= 3f)
+            {
+                Instantiate(BulletPrefab, transform.position, transform.rotation);
+                timer = 0f;
+
+
+            }
+
+
+            if (timer == 0)
+            {
+                this.GetComponent<Animator>().SetBool("IsShooting", false);
+                //IsShooting = false;
+            }
         }
-
-        if (timer >= 3f)
-        {
-            Instantiate(BulletPrefab, transform.position, transform.rotation);
-            timer = 0f;
-
-
-        }
-
-
-        if (timer == 0)
-        {
-            this.GetComponent<Animator>().SetBool("IsShooting", false);
-            //IsShooting = false;
-        }
-
 
     }
 }

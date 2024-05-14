@@ -48,12 +48,14 @@ public class Destroy : MonoBehaviour
             {
                 spriterenderer.sprite = null;
                 destroyedstatue.SetActive(true);
-               // rubbles.SetActive(false);
+                Destroy(GameObject.Find("Thing2"));
+                // rubbles.SetActive(false);
             }
             if (timer > 0.8f)
             {
                // this.GetComponent<Collider2D>().enabled = false;
                 spriterenderer.sprite = Destroyed;
+                
                 timer = 2;
             }
         }

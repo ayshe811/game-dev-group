@@ -62,12 +62,13 @@ public class scytheScript2 : MonoBehaviour
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             aim = false;
-            coolDown = 1f;
+            coolDown = 3f;
             hasThrown = true;
             finished = false;
             activate = false;
         }
-        else
+      
+
         if (followPlayer)
         {
            transform.position = player.transform.position;
@@ -79,6 +80,7 @@ public class scytheScript2 : MonoBehaviour
             {
                 finished = true;
                 print("ella");
+                activate = false;
             }
 
         }
