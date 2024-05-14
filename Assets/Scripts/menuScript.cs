@@ -7,7 +7,7 @@ public class menuScript : MonoBehaviour
 {
     public void startGame()
     {
-        SceneManager.LoadScene("Cutscene");
+        SceneManager.LoadScene("scene_1");
     }
     public void quitGame()
     {
