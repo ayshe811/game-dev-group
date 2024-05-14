@@ -6795,7 +6795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.35, z: -10}
+  m_LocalPosition: {x: 2.94, y: 0.35, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7273,6 +7273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 591107608}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 557961172}
   StateOne: {fileID: 1996434623, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
   StateTwo: {fileID: -1783849453, guid: bf6d87d3618b2f24381581bd02b22e03, type: 3}
@@ -8542,6 +8543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -8630,6 +8632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 679312349}
   StateOne: {fileID: -1171951651, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
   StateTwo: {fileID: 987020264, guid: 194e67a7888ef4744a58072be4fd77cc, type: 3}
@@ -8718,6 +8721,7 @@ GameObject:
   - component: {fileID: 687508457}
   - component: {fileID: 687508456}
   - component: {fileID: 687508458}
+  - component: {fileID: 687508459}
   m_Layer: 0
   m_Name: flag
   m_TagString: flag
@@ -8827,6 +8831,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0175004, y: 0}
   m_Size: {x: 0.9649992, y: 2}
   m_Direction: 0
+--- !u!114 &687508459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687508455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b987f7d31ce7d0b4e8847ab43786f411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionAnim: {fileID: 811852376}
 --- !u!1 &707573169
 GameObject:
   m_ObjectHideFlags: 0
@@ -9550,6 +9567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -10403,7 +10421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809247254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.35, z: 0}
+  m_LocalPosition: {x: 2.94, y: 0.35, z: 0}
   m_LocalScale: {x: 0.12278369, y: 0.12278369, z: 0.12278369}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10455,6 +10473,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &811852376 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 178777171082810287, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+  m_PrefabInstance: {fileID: 1707171578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &817325412
 GameObject:
   m_ObjectHideFlags: 0
@@ -10856,7 +10879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830193890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.35, z: -10}
+  m_LocalPosition: {x: 2.94, y: 0.35, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13598,6 +13621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -19658,6 +19682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -27699,6 +27724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -29771,6 +29797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitcount: 0
   destroyedstatue: {fileID: 0}
+  scyScrp2: {fileID: 0}
   spriterenderer: {fileID: 0}
   StateOne: {fileID: 0}
   StateTwo: {fileID: 0}
@@ -30436,6 +30463,79 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1707171578
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2435001285247502112, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_SortingOrder
+      value: 555
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45842743
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.6774726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.3347883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798292727084059413, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_Name
+      value: FadeInandOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798292727084059413, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518276846860471633, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: SceneName
+      value: scene_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
 --- !u!1 &1711238383
 GameObject:
   m_ObjectHideFlags: 0

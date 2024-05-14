@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 194404284}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &194404286
@@ -4903,7 +4903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 477154671}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &477154668
@@ -11327,7 +11327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 752797035}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &752797037
@@ -12094,7 +12094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 781639122}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &781639124
@@ -13881,7 +13881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 878795326}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &878795328
@@ -14378,7 +14378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 906470982}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &906470984
@@ -15768,6 +15768,79 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &986902538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2435001285247502112, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_SortingOrder
+      value: 555
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45842743
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.6774726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.3347883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935286789488360740, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798292727084059413, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_Name
+      value: FadeInandOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798292727084059413, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518276846860471633, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
+      propertyPath: SceneName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
 --- !u!1 &987480135
 GameObject:
   m_ObjectHideFlags: 0
@@ -16486,7 +16559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1035655300}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1035655302
@@ -24194,7 +24267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1265142135}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1265142137
@@ -24363,7 +24436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1267598475}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1267598477
@@ -33354,7 +33427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1590119653}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1590119655
@@ -33755,7 +33828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1612123216}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1612123218
@@ -35241,7 +35314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1716678823}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1716678825
@@ -36701,7 +36774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1861858621}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1861858623
@@ -38219,7 +38292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 1912052694}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1912052696
@@ -39992,7 +40065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 2016325554}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &2016325556
@@ -40360,7 +40433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 2042977568}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &2042977570
@@ -41638,7 +41711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 2141209125}
+  startTimer: 0
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &2141209127

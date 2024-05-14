@@ -274,8 +274,8 @@ public class player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject hpbar = GameObject.Find("HP");
-        if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
-        if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
+     //   if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
+     //   if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
 
         if (collision.gameObject.tag == "Bullet" && hit == false)
         {
