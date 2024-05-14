@@ -6,6 +6,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.WSA;
 
 public class player : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class player : MonoBehaviour
     //I CANT SPELL
     void Start()
     {
-        Application.targetFrameRate = 60;
+        UnityEngine.Application.targetFrameRate = 60;
 
         rb = GetComponent<Rigidbody2D>();
         playerSpeed = 9;
@@ -206,6 +207,7 @@ public class player : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // dashing
                 {
+                    scytheSc.activate = false;
                     scytheSc.anim.SetBool("scythe", false);
                     isLerping = true;
                     rb.velocity = Vector2.zero;

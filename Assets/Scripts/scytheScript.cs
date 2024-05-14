@@ -28,6 +28,8 @@ public class scytheScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        SpriteRenderer Sprite = this.gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.Find("player");
         playerScript = GameObject.Find("player").GetComponent<player>();
         cursor = GameObject.Find("cursor");
@@ -65,6 +67,8 @@ public class scytheScript : MonoBehaviour
         if (stop) rb.velocity = Vector3.zero;
         if (activate) // when the player throws the scythe
         {
+            this.gameObject.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 1);
+            stop = false;
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             aim = false;
@@ -73,20 +77,26 @@ public class scytheScript : MonoBehaviour
             finished = false;
             activate = false;
         }
-        else //followPlayer = true;
-
-        if (isGrounded)
-        {
-            followPlayer = true;
-          //  playerScript.isDashing = false;
-        }
 
         if (followPlayer) transform.position = player.transform.position;
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "platform") isGrounded = true;
+        if (other.gameObject.tag == "platform")
+        {
+            anim.StopPlayback();
+
+            this.gameObject.GetComponent<SpriteRenderer>().color *= new Color(1,1,1,0);
+            anim.Play("testScythe");
+            anim.SetBool("scythe", false);
+            playerScript.isDashing = false;
+            activate = false;
+            followPlayer = true;            
+            stop = true;
+            aim = true;
+            
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
