@@ -34368,6 +34368,7 @@ GameObject:
   - component: {fileID: 1967892244}
   - component: {fileID: 1967892243}
   - component: {fileID: 1967892242}
+  - component: {fileID: 1967892246}
   m_Layer: 0
   m_Name: Thing
   m_TagString: spike
@@ -34388,7 +34389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  animator: {fileID: 0}
   BulletPrefab: {fileID: 1159108567915588316, guid: 948430967b8a5704faac1dd21b6994c0, type: 3}
   IsShooting: 0
 --- !u!61 &1967892243
@@ -34503,6 +34503,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -360}
+--- !u!95 &1967892246
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967892241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19d6290fcdf3dcd4685faf8a98c4bc57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1968335394
 GameObject:
   m_ObjectHideFlags: 0

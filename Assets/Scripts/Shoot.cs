@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public float timer;
-    public Animator animator;
+    Animator animator;
     //public GameObject Bullet;
 
 
@@ -18,6 +18,7 @@ public class Shoot : MonoBehaviour
     void Start()
     {
        // Bullet.SetActive(false);
+       animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

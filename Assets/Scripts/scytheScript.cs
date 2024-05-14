@@ -75,7 +75,12 @@ public class scytheScript : MonoBehaviour
         }
         else //followPlayer = true;
 
-        if (isGrounded) followPlayer = true;
+        if (isGrounded)
+        {
+            followPlayer = true;
+          //  playerScript.isDashing = false;
+        }
+
         if (followPlayer) transform.position = player.transform.position;
     }
 
