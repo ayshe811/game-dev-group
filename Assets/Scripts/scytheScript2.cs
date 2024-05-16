@@ -62,7 +62,7 @@ public class scytheScript2 : MonoBehaviour
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             aim = false;
-            coolDown = 3f;
+            coolDown = 0.5f;
             hasThrown = true;
             finished = false;
             activate = false;

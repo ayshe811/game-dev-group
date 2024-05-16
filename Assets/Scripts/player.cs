@@ -176,10 +176,6 @@ public class player : MonoBehaviour
                 }
             }
 
-            
-
-
-
             initialPos = this.transform.position;
 
             xInput = Input.GetAxis("Horizontal");
@@ -249,17 +245,17 @@ public class player : MonoBehaviour
                         isDashing = true;
                     }
 
-                    throwTimer = 0;
                     isThrown = false;
                     anim.SetBool("throw", false);
+                    throwTimer = 0;
                 }
 
 
                 if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
                 {
+                    anim.SetBool("throw", true);
                     anim.SetBool("idle", false);
                     anim.SetBool("run", false);
-                    anim.SetBool("throw", true);
                     
 
                     isThrown2 = true;
