@@ -101,6 +101,9 @@ public class scytheScript2 : MonoBehaviour
         {
             anim.SetBool("scythe", false);
             finished = true;
+
+            playerScript.isThrown2 = false;
+            playerScript.throwTimer = 0;
            // coolDown = 0;
         }
     }

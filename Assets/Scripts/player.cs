@@ -15,7 +15,7 @@ public class player : MonoBehaviour
     Rigidbody2D rb;
    [SerializeField] float xInput;
     float playerSpeed;
-    public float timer;
+    public float timer, throwTimer;
 
     public GameObject scythe, cursor, scythe2;
     public scytheScript scytheSc;
@@ -24,7 +24,7 @@ public class player : MonoBehaviour
     public scytheScript2 scytheSc2;
     
     public LayerMask groundLayer;
-    public bool isGrounded;
+    public bool isGrounded, isThrown, isThrown2;
     SpriteRenderer playerSprite;
 
     public Animator anim;
@@ -65,7 +65,7 @@ public class player : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         throwing = false;
 
-        hpbar.GetComponent<Animator>().SetInteger("Health", (int)5);
+        //hpbar.GetComponent<Animator>().SetInteger("Health", (int)5);
 
     }
 
@@ -129,8 +129,8 @@ public class player : MonoBehaviour
         {
             moving = false;
 
-            anim.SetBool("idle", true);
-            anim.SetBool("run", false);
+            //anim.SetBool("idle", true);
+            //anim.SetBool("run", false);
         }
         if (Dialogue.activeSelf == true)
         {
@@ -154,8 +154,8 @@ public class player : MonoBehaviour
                    
                     //anim.Play("Run");
 
-                    anim.SetBool("run", true);
-                    anim.SetBool("idle", false);
+                    //anim.SetBool("run", true);
+                    //anim.SetBool("idle", false);
 
                     animTimer += Time.deltaTime;
                 }
@@ -169,19 +169,16 @@ public class player : MonoBehaviour
                   
                     //  anim.Play("Run");
 
-                    anim.SetBool("run", true);
-                    anim.SetBool("idle", false);
+                    //anim.SetBool("run", true);
+                    //anim.SetBool("idle", false);
 
                     animTimer += Time.deltaTime;
                 }
             }
-            else /*if(xInput == 0)*/
-            {
-                moving = false;
 
-                anim.SetBool("idle", true);
-                anim.SetBool("run", false);
-            }
+            
+
+
 
             initialPos = this.transform.position;
 
@@ -193,17 +190,43 @@ public class player : MonoBehaviour
             allowedPos = Vector3.ClampMagnitude(allowedPos, 3f);
             cursor.transform.position = initialPos + allowedPos;
 
+            
+
             if (!pauseScript.isPaused)
             {
+                if (rb.velocity.x >= 0.001f && !isThrown || rb.velocity.x <= -0.001f && !isThrown)
+                {
+                    anim.SetBool("run", true);
+                    anim.SetBool("idle", false);
+                }
+                else if (rb.velocity.x == 0f && isThrown == false) /*if(xInput == 0)*/
+                {
+                    moving = false;
+
+                    anim.SetBool("idle", true);
+                    anim.SetBool("run", false);
+                }
+
                 if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
                 {
-                    scytheSc.anim.SetBool("scythe", true);
-                    isLerping = false;
-                    if (isGrounded)
-                    {
-                        scytheSc.activate = true;
-                        isDashing = true;
-                    }
+                    isThrown = true;
+                    anim.SetBool("throw", true);
+                    anim.SetBool("idle", false);
+                    anim.SetBool("run", false);
+                    
+                    //if (throwTimer > 1)
+                    //{
+                    //    scytheSc.anim.SetBool("scythe", true);
+                    //    isLerping = false;
+                    //    if (isGrounded)
+                    //    {
+                    //        scytheSc.activate = true;
+                    //        isDashing = true;
+                    //    }
+
+                    //   // throwTimer = 0;
+                    //    anim.SetBool("throw", false);
+                    //}
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // dashing
                 {
@@ -214,17 +237,56 @@ public class player : MonoBehaviour
                     scytheSc.stop = true;
                 }
 
+                if (isThrown) throwTimer += Time.deltaTime;
+                if (throwTimer > 0.2f && isThrown)
+                {
+                    anim.SetBool("throw", true);
+                    scytheSc.anim.SetBool("scythe", true);
+                    isLerping = false;
+                    if (isGrounded)
+                    {
+                        scytheSc.activate = true;
+                        isDashing = true;
+                    }
+
+                    throwTimer = 0;
+                    isThrown = false;
+                    anim.SetBool("throw", false);
+                }
+
+
                 if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
                 {
-                    scytheSc2.anim.SetBool("scythe", true);
-                    scytheSc2.followPlayer = false;
-                    scytheSc2.activate = true;
+                    anim.SetBool("idle", false);
+                    anim.SetBool("run", false);
+                    anim.SetBool("throw", true);
+                    
+
+                    isThrown2 = true;
+                    
+
+                    //scytheSc2.anim.SetBool("scythe", true);
+                    //scytheSc2.followPlayer = false;
+                    //scytheSc2.activate = true;
                 }
                 else if(scytheSc2.finished == false)
                 {
                   //  scytheSc2.followPlayer = true;
                     scytheSc2.aim = true;
                     scytheSc2.anim.SetBool("scythe", false);
+                }
+
+                if(isThrown2) throwTimer += Time.deltaTime;
+
+                if(throwTimer > 0.2f && isThrown2)
+                {
+                    scytheSc2.anim.SetBool("scythe", true);
+                    scytheSc2.followPlayer = false;
+                    scytheSc2.activate = true;
+
+                    anim.SetBool("throw", false);
+                    isThrown2 = false;
+                    throwTimer = 0;
                 }
             }
             if (isLerping)
@@ -238,19 +300,20 @@ public class player : MonoBehaviour
                 //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
                 rb.gravityScale = 4.99f;
             }
-        }
-        
 
+            
+        }
     }
     void FixedUpdate()
     {
-        if (isGrounded&&isLerping==false) {
+        if (isGrounded&&isLerping==false) 
+        {
             rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
         }
         else
         {
-            anim.SetBool("idle", true);
-            anim.SetBool("run", false);
+            //anim.SetBool("idle", true);
+            //anim.SetBool("run", false);
             
         }//need to set falling animation when player is not grounded
 
