@@ -9594,6 +9594,8 @@ MonoBehaviour:
   hp3: {fileID: 0}
   hp2: {fileID: 0}
   hp1: {fileID: 0}
+  dashsprite: {fileID: 0}
+  idleSprite: {fileID: 0}
   hit: 0
   invince: 0
   deathtimer: 0
@@ -9721,6 +9723,8 @@ MonoBehaviour:
   hp3: {fileID: 21300000, guid: 762650f7647876b4ebc420a7275fd505, type: 3}
   hp2: {fileID: 21300000, guid: 0c66793e46fa35a4595cadc13e7e5374, type: 3}
   hp1: {fileID: 21300000, guid: f43833f076d980147945792c1b9299bc, type: 3}
+  dashsprite: {fileID: 0}
+  idleSprite: {fileID: 0}
   hit: 0
   invince: 0
   deathtimer: 0
@@ -10759,7 +10763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3798292727084059413, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4518276846860471633, guid: da289ed3c81cd4e4a9b9739c69c54571, type: 3}
       propertyPath: SceneName

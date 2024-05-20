@@ -44,6 +44,7 @@ public class player : MonoBehaviour
     public Sprite hp3;
     public Sprite hp2;
     public Sprite hp1;
+    public Sprite dashsprite, idleSprite;
 
     public bool hit = false;
     public float invince;
@@ -65,6 +66,8 @@ public class player : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         throwing = false;
 
+        playerSprite.sprite = idleSprite;
+
         //hpbar.GetComponent<Animator>().SetInteger("Health", (int)5);
 
     }
@@ -72,6 +75,10 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) SceneManager.LoadScene("scene_1");
+        if (Input.GetKeyDown(KeyCode.Alpha2)) SceneManager.LoadScene("scene_2");
+        if (Input.GetKeyDown(KeyCode.Alpha3)) SceneManager.LoadScene("scene_3");
+
         if (hit == true)
         {
             invince += Time.deltaTime;
@@ -205,6 +212,7 @@ public class player : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0) && !isDashing) // when throwing the scythe
                 {
+                    playerSprite.sprite = idleSprite;
                     isThrown = true;
                     anim.SetBool("throw", true);
                     anim.SetBool("idle", false);
@@ -226,6 +234,7 @@ public class player : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // dashing
                 {
+                    GetComponent<SpriteRenderer>().sprite = dashsprite;
                     scytheSc.activate = false;
                     scytheSc.anim.SetBool("scythe", false);
                     isLerping = true;
@@ -247,9 +256,9 @@ public class player : MonoBehaviour
 
                     isThrown = false;
                     anim.SetBool("throw", false);
+                   // anim.SetBool("wait", true);
                     throwTimer = 0;
                 }
-
 
                 if (Input.GetMouseButtonDown(1) && scytheSc2.finished == true) // when throwing the attack scythe
                 {
@@ -265,16 +274,16 @@ public class player : MonoBehaviour
                     //scytheSc2.followPlayer = false;
                     //scytheSc2.activate = true;
                 }
-                else if(scytheSc2.finished == false)
+                else if (scytheSc2.finished == false)
                 {
                   //  scytheSc2.followPlayer = true;
                     scytheSc2.aim = true;
                     scytheSc2.anim.SetBool("scythe", false);
                 }
 
-                if(isThrown2) throwTimer += Time.deltaTime;
+                if (isThrown2) throwTimer += Time.deltaTime;
 
-                if(throwTimer > 0.2f && isThrown2)
+                if (throwTimer > 0.2f && isThrown2)
                 {
                     scytheSc2.anim.SetBool("scythe", true);
                     scytheSc2.followPlayer = false;
@@ -321,20 +330,12 @@ public class player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "spike") SceneManager.LoadScene("scene_2");
-        
+        if (collision.gameObject.tag == "spike") SceneManager.LoadScene("scene_2");        
         if (collision.gameObject.tag == "death") SceneManager.LoadScene("scene_1");
-       
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
 
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
         GameObject hpbar = GameObject.Find("HP");
-     //   if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
-     //   if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
+        //   if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
+        //   if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
 
         if (collision.gameObject.tag == "Bullet" && hit == false)
         {
@@ -343,7 +344,26 @@ public class player : MonoBehaviour
             hit = true;
             //  hpbar.GetComponent<Animator>().SetBool("isHit", true);
         }
+
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+
+    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    GameObject hpbar = GameObject.Find("HP");
+    // //   if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
+    // //   if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
+
+    //    if (collision.gameObject.tag == "Bullet" && hit == false)
+    //    {
+    //        hp--;
+    //        print("///////" + hp);
+    //        hit = true;
+    //        //  hpbar.GetComponent<Animator>().SetBool("isHit", true);
+    //    }
+    //}
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (isLerping && collision.gameObject.tag == "collisonSprite")
