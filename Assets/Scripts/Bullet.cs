@@ -32,7 +32,10 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" 
+            || collision.gameObject.tag == "Bullet" 
+            || collision.gameObject.tag == "platform" 
+            || collision.gameObject.tag == "statue")
         {
             parSystem.Play();
             collided = true;

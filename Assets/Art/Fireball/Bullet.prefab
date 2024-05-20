@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3543253587757356951}
   - component: {fileID: -3957725723064673740}
   - component: {fileID: 3035177010266533461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.67181444, y: -0.15268517}
+  m_Offset: {x: -0.20640373, y: 0.35508215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -121,7 +121,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7507892, y: 1.3053703}
+  m_Size: {x: 0.82873774, y: 1.2112448}
   m_EdgeRadius: 0
 --- !u!198 &-3957725723064673740
 ParticleSystem:
@@ -4988,7 +4988,7 @@ GameObject:
   - component: {fileID: 5346744310584926438}
   - component: {fileID: 3257865858440302483}
   - component: {fileID: 6917910086530304605}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Bullet
   m_Icon: {fileID: 0}
