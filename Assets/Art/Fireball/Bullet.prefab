@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb34b2563ff137d48ba3899c7ab2dc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parSystem: {fileID: 0}
   bulletSpeed: 10
   sprite: {fileID: 5346744310584926438}
 --- !u!50 &4841695392280301793
