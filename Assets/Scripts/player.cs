@@ -324,8 +324,9 @@ public class player : MonoBehaviour
 
         if (disabled)
         {
-            rb.velocity = new Vector2(0f,0f);
             anim.Play("idle");
+            rb.velocity = new Vector2(0f,0f);
+            
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -381,6 +382,11 @@ public class player : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
+                anim.SetBool("run", false);
+                xInput = 0;
+                moving = false;
+                anim.StopPlayback();                
+                anim.SetBool("idle", true);
                 Dialogue.SetActive(true);
             }
         }
