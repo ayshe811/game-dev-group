@@ -8,6 +8,7 @@ public class MenuButton : MonoBehaviour
     public Sprite sprite;
     public Sprite clicked;
     public Sprite highlightSprite;
+    
 
     public bool start;
 
@@ -40,6 +41,9 @@ public class MenuButton : MonoBehaviour
         if (start)
         {
             transform.GetComponent<SpriteRenderer>().sprite = clicked;
+           
+            
+            
             timer += Time.deltaTime;
             if (timer > 0.2f)
             {
