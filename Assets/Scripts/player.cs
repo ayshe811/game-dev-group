@@ -160,6 +160,8 @@ public class player : MonoBehaviour
 
         if (disabled == false)
         {
+            
+
             if (/*xInput > 0.2f*/ Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && A == false)
             {
                 D = true;
@@ -176,6 +178,7 @@ public class player : MonoBehaviour
 
                     animTimer += Time.deltaTime;
                 }
+
                 GetComponent<SpriteRenderer>().flipX = false;
             }
             else if (/*xInput < -0.2f*/ Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && D == false)
@@ -200,9 +203,10 @@ public class player : MonoBehaviour
             if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
             {
                 xInput = 0;
-                rb.velocity = Vector2.zero;
+                //rb.velocity = Vector2.zero;
                 moving = false;
                 disabled = true;
+
 
             }
 
@@ -351,7 +355,7 @@ public class player : MonoBehaviour
         if (disabled)
         {
             anim.Play("idle");
-            rb.velocity = new Vector2(0f,0f);
+            rb.velocity *= new Vector2(0f,1f);
             
         }
     }
