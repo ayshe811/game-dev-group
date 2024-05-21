@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    ParticleSystem parSystem;
+    public ParticleSystem parSystem;
     public float bulletSpeed;
     Rigidbody2D rb;
     float fireTimer;
@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
         //bulletSpeed = 10;
         rb.velocity = transform.up * bulletSpeed;
         Destroy(gameObject, 2f);
-        parSystem = GetComponent<ParticleSystem>();
+        //parSystem = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame

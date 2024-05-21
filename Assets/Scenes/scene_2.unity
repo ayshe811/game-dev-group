@@ -1532,8 +1532,10 @@ MonoBehaviour:
   textDisplay: {fileID: 997461968}
   sentences:
   - Test
+  index: 0
   typespeed: 0.1
   DialogueCamera: {fileID: 1528995439}
+  DialogueCamera2: {fileID: 0}
 --- !u!4 &92514077
 Transform:
   m_ObjectHideFlags: 0
