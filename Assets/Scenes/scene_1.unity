@@ -2408,7 +2408,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -10587,6 +10587,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1864169010ddfc64b8ee2cf21cddc8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera1: {fileID: 0}
+  shake: 0
+  shakeamount: 0.7
+  decrease: 1
   A: 0
   D: 0
   hp: 5
@@ -10719,6 +10723,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1864169010ddfc64b8ee2cf21cddc8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera1: {fileID: 0}
+  shake: 0
+  shakeamount: 0.7
+  decrease: 1
   A: 0
   D: 0
   hp: 5
@@ -27103,7 +27111,7 @@ RectTransform:
   m_GameObject: {fileID: 1415992392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4255, y: 0.4255, z: 0.4255}
+  m_LocalScale: {x: 1.4258505, y: 1.4258505, z: 1.4258505}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 153727838}
@@ -27111,7 +27119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 727, y: -22.5}
+  m_AnchoredPosition: {x: 1813, y: -110}
   m_SizeDelta: {x: 272.566, y: 63.1076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415992394
@@ -29713,7 +29721,7 @@ RectTransform:
   m_GameObject: {fileID: 1642605700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4255, y: 0.4255, z: 0.4255}
+  m_LocalScale: {x: 1.4258505, y: 1.4258505, z: 1.4258505}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 153727838}
@@ -29721,7 +29729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70.4, y: -22.5}
+  m_AnchoredPosition: {x: 236, y: -110}
   m_SizeDelta: {x: 272.566, y: 63.1076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642605702
@@ -33377,6 +33385,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1864169010ddfc64b8ee2cf21cddc8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera1: {fileID: 0}
+  shake: 0
+  shakeamount: 0.7
+  decrease: 1
   A: 0
   D: 0
   hp: 5
