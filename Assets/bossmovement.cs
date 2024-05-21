@@ -4,25 +4,37 @@ using UnityEngine;
 
 public class bossmovement : MonoBehaviour
 {
-    public Transform p1;
-    public Transform p2;
-    public Transform p3;
-    public Transform p4;
-    public Transform p5;
-    public Transform p6;
+    public Transform[] p1;
+
 
     public float speed = 0.1f;
+
+    public Transform currentpos;
+
+    public int i;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentpos= p1[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        //this.transform.position = Vector2.Movetowards(transform.position, p1.position, speed);
+        transform.position = Vector2.MoveTowards(transform.position, currentpos.position, speed);
+
+        if (this.transform.position == currentpos.position)
+        {
+            i++;
+            currentpos = p1[i];
+
+            if (currentpos == p1[5])
+            {
+                currentpos = p1[0];
+                i= 0;
+            }
+        }
     }
 }
