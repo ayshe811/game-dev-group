@@ -10,6 +10,11 @@ using UnityEngine.WSA;
 
 public class player : MonoBehaviour
 {
+    public GameObject Camera1;
+    public float shake = 0;
+    public float shakeamount = 0.7f;
+    public float decrease = 1.0f;
+
     public bool A;
     public bool D;
 
@@ -80,6 +85,17 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (shake > 0)
+        {
+            Camera1.transform.position = Random.insideUnitSphere * shakeamount;
+            shake -= Time.deltaTime * decrease;
+        }
+        else
+        {
+            shake = 0f;
+        }
+
+
         A = false;
         D = false;
 
@@ -370,6 +386,7 @@ public class player : MonoBehaviour
 
         if (collision.gameObject.tag == "Bullet" && hit == false)
         {
+            shake = 1;
             hp--;
             print("///////" + hp);
             hit = true;

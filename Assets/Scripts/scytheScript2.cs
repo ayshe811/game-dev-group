@@ -59,6 +59,7 @@ public class scytheScript2 : MonoBehaviour
 
         if (activate) // when the player throws the scythe
         {
+            this.gameObject.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 1);
             followPlayer = false;
             rb.AddForce(shootingForce * transform.right, ForceMode2D.Impulse);
             aim = false;
@@ -99,6 +100,7 @@ public class scytheScript2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "statue")
         {
+            this.gameObject.GetComponent<SpriteRenderer>().color *= new Color(1, 1, 1, 0);
             anim.SetBool("scythe", false);
             finished = true;
 

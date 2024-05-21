@@ -1203,6 +1203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1864169010ddfc64b8ee2cf21cddc8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera1: {fileID: 548867051}
+  shake: 0
+  shakeamount: 0.7
+  decrease: 1
   A: 0
   D: 0
   hp: 5
