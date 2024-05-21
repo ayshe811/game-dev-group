@@ -10,6 +10,9 @@ using UnityEngine.WSA;
 
 public class player : MonoBehaviour
 {
+    public bool A;
+    public bool D;
+
     public int hp = 5;
 
     Rigidbody2D rb;
@@ -54,6 +57,8 @@ public class player : MonoBehaviour
     //I CANT SPELL
     void Start()
     {
+        Scene scene = SceneManager.GetActiveScene();
+
         UnityEngine.Application.targetFrameRate = 60;
 
         rb = GetComponent<Rigidbody2D>();
@@ -75,6 +80,9 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        A = false;
+        D = false;
+
         if (Input.GetKeyDown(KeyCode.Alpha1)) SceneManager.LoadScene("scene_1");
         if (Input.GetKeyDown(KeyCode.Alpha2)) SceneManager.LoadScene("scene_2");
         if (Input.GetKeyDown(KeyCode.Alpha3)) SceneManager.LoadScene("scene_3");
@@ -152,13 +160,15 @@ public class player : MonoBehaviour
 
         if (disabled == false)
         {
-            if (/*xInput > 0.2f*/ Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if (/*xInput > 0.2f*/ Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && A == false)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
-                if (isGrounded)
+                D = true;
+
+                
+                if (isGrounded && !Input.GetKey(KeyCode.A))
                 {
                     moving = true;
-                   
+
                     //anim.Play("Run");
 
                     //anim.SetBool("run", true);
@@ -166,14 +176,17 @@ public class player : MonoBehaviour
 
                     animTimer += Time.deltaTime;
                 }
+                GetComponent<SpriteRenderer>().flipX = false;
             }
-            else if (/*xInput < -0.2f*/ Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            else if (/*xInput < -0.2f*/ Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && D == false)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
-                if (isGrounded)
+                A = true;
+
+                
+                if (isGrounded && !Input.GetKey(KeyCode.D))
                 {
                     moving = true;
-                  
+
                     //  anim.Play("Run");
 
                     //anim.SetBool("run", true);
@@ -181,7 +194,20 @@ public class player : MonoBehaviour
 
                     animTimer += Time.deltaTime;
                 }
+                GetComponent<SpriteRenderer>().flipX = true;
             }
+
+            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+            {
+                xInput = 0;
+                rb.velocity = Vector2.zero;
+                moving = false;
+                disabled = true;
+
+            }
+
+
+
 
             initialPos = this.transform.position;
 
@@ -197,7 +223,7 @@ public class player : MonoBehaviour
 
             if (!pauseScript.isPaused)
             {
-                if (rb.velocity.x >= 0.001f && !isThrown || rb.velocity.x <= -0.001f && !isThrown)
+                if (rb.velocity.x >= 0.01f && !isThrown || rb.velocity.x <= -0.001f && !isThrown)
                 {
                     anim.SetBool("run", true);
                     anim.SetBool("idle", false);
@@ -332,7 +358,7 @@ public class player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "spike") SceneManager.LoadScene("scene_2");        
-        if (collision.gameObject.tag == "death") SceneManager.LoadScene("scene_1");
+        if (collision.gameObject.tag == "death") SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 
         GameObject hpbar = GameObject.Find("HP");
         //   if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
