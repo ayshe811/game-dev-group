@@ -57,6 +57,7 @@ public class player : MonoBehaviour
     public bool hit = false;
     public float invince;
     public float deathtimer;
+    Transform playerTransform;
     // Start is called before the first frame update
 
     //I CANT SPELL
@@ -75,8 +76,12 @@ public class player : MonoBehaviour
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
         playerSprite = GetComponent<SpriteRenderer>();
         throwing = false;
+        playerTransform = GetComponent<Transform>();
+
 
         playerSprite.sprite = idleSprite;
+
+        
 
         //hpbar.GetComponent<Animator>().SetInteger("Health", (int)5);
 
@@ -245,8 +250,13 @@ public class player : MonoBehaviour
             {
                 if (rb.velocity.x >= 0.01f && !isThrown || rb.velocity.x <= -0.001f && !isThrown)
                 {
-                    anim.SetBool("run", true);
-                    anim.SetBool("idle", false);
+                    if (isGrounded)
+                    {
+                        anim.SetBool("run", true);
+                        anim.SetBool("idle", false);
+                    }
+                    //anim.SetBool("run", true);
+                    //anim.SetBool("idle", false);
                 }
                 else if (rb.velocity.x == 0f && isThrown == false) /*if(xInput == 0)*/
                 {
@@ -340,32 +350,35 @@ public class player : MonoBehaviour
                     throwTimer = 0;
                 }
             }
-            if (isLerping)
-            {               
-                rb.gravityScale = 0f;
-                transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
-                //use physics to move player towards scythe!!!!!!!!!!!!
-            }
-            else
-            {
-                //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
-                rb.gravityScale = 4.99f;
-            }
+            //if (isLerping)
+            //{               
+            //    rb.gravityScale = 0f;
+            //   // rb.velocity = new Vector2(scythe.transform.position.x * (40 * Time.deltaTime), scythe.transform.position.y * (40 * Time.deltaTime));
+            //    rb.AddForce(playerTransform.position);
+            //   // transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
+            //    //use physics to move player towards scythe!!!!!!!!!!!!
+            //}
+            //else
+            //{
+            //    //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
+            //    rb.gravityScale = 4.99f;
+            //}
 
             
         }
     }
     void FixedUpdate()
     {
-        if (isGrounded&&isLerping==false) 
+        if (isGrounded && isLerping == false) 
         {
             rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
         }
         else
         {
-            //anim.SetBool("idle", true);
-            //anim.SetBool("run", false);
-            
+            rb.gravityScale = 0f;
+            var target = scythe.transform.position - transform.position;
+            rb.velocity = new Vector2((target.x * (1000 * Time.deltaTime)), (target.y * (1000 * Time.deltaTime)));
+
         }//need to set falling animation when player is not grounded
 
         if (disabled)
@@ -373,6 +386,18 @@ public class player : MonoBehaviour
             anim.Play("idle");
             rb.velocity *= new Vector2(0f,1f);
             
+        }
+
+        if (isLerping)
+        {
+            //rb.gravityScale = 0f;
+            //var target = scythe.transform.position - transform.position;
+            //rb.velocity = new Vector2((target.x * (1000 * Time.deltaTime)), (target.y * (1000 * Time.deltaTime)));
+        }
+        else
+        {
+            //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
+            rb.gravityScale = 4.99f;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
