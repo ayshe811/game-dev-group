@@ -273,20 +273,6 @@ public class player : MonoBehaviour
                     anim.SetBool("throw", true);
                     anim.SetBool("idle", false);
                     anim.SetBool("run", false);
-                    
-                    //if (throwTimer > 1)
-                    //{
-                    //    scytheSc.anim.SetBool("scythe", true);
-                    //    isLerping = false;
-                    //    if (isGrounded)
-                    //    {
-                    //        scytheSc.activate = true;
-                    //        isDashing = true;
-                    //    }
-
-                    //   // throwTimer = 0;
-                    //    anim.SetBool("throw", false);
-                    //}
                 }
                 else if (Input.GetMouseButtonDown(0) && isDashing) // dashing
                 {
@@ -375,11 +361,9 @@ public class player : MonoBehaviour
         }
         else
         {
-            rb.gravityScale = 0f;
             var target = scythe.transform.position - transform.position;
             rb.velocity = new Vector2((target.x * (1000 * Time.deltaTime)), (target.y * (1000 * Time.deltaTime)));
-
-        }//need to set falling animation when player is not grounded
+        }
 
         if (disabled)
         {
