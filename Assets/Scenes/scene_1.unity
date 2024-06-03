@@ -6447,6 +6447,7 @@ Transform:
   - {fileID: 544954217}
   - {fileID: 1840405695}
   - {fileID: 1449598355}
+  - {fileID: 564035605}
   - {fileID: 1810785882}
   - {fileID: 1040396065}
   - {fileID: 255270441}
@@ -6456,7 +6457,6 @@ Transform:
   - {fileID: 297618677}
   - {fileID: 1180783397}
   - {fileID: 1722969808}
-  - {fileID: 564035605}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

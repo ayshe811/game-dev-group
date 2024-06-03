@@ -57,10 +57,9 @@ public class player : MonoBehaviour
     public bool hit = false;
     public float invince;
     public float deathtimer;
-    Transform playerTransform;
+
     // Start is called before the first frame update
 
-    //I CANT SPELL
     void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -76,8 +75,6 @@ public class player : MonoBehaviour
         scytheSc2=GameObject.Find("ScytheParent2").GetComponent<scytheScript2>();
         playerSprite = GetComponent<SpriteRenderer>();
         throwing = false;
-        playerTransform = GetComponent<Transform>();
-
 
         playerSprite.sprite = idleSprite;
 
@@ -164,9 +161,6 @@ public class player : MonoBehaviour
         if (!isGrounded)
         {
             moving = false;
-
-            //anim.SetBool("idle", true);
-            //anim.SetBool("run", false);
         }
         if (Dialogue.activeSelf == true)
         {
@@ -191,12 +185,6 @@ public class player : MonoBehaviour
                 if (isGrounded && !Input.GetKey(KeyCode.A))
                 {
                     moving = true;
-
-                    //anim.Play("Run");
-
-                    //anim.SetBool("run", true);
-                    //anim.SetBool("idle", false);
-
                     animTimer += Time.deltaTime;
                 }
 
@@ -210,12 +198,6 @@ public class player : MonoBehaviour
                 if (isGrounded && !Input.GetKey(KeyCode.D))
                 {
                     moving = true;
-
-                    //  anim.Play("Run");
-
-                    //anim.SetBool("run", true);
-                    //anim.SetBool("idle", false);
-
                     animTimer += Time.deltaTime;
                 }
                 GetComponent<SpriteRenderer>().flipX = true;
@@ -255,8 +237,6 @@ public class player : MonoBehaviour
                         anim.SetBool("run", true);
                         anim.SetBool("idle", false);
                     }
-                    //anim.SetBool("run", true);
-                    //anim.SetBool("idle", false);
                 }
                 else if (rb.velocity.x == 0f && isThrown == false) /*if(xInput == 0)*/
                 {
@@ -346,8 +326,9 @@ public class player : MonoBehaviour
         }
         else
         {
-            var target = scythe.transform.position - transform.position;
+            Vector2 target = scythe.transform.position - transform.position;
             rb.velocity = new Vector2((target.x * (1000 * Time.deltaTime)), (target.y * (1000 * Time.deltaTime)));
+          //  transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10);
         }
 
         if (disabled)
@@ -378,13 +359,12 @@ public class player : MonoBehaviour
     {
         if (isLerping && collision.gameObject.tag == "collisonSprite")
         {
-            print("aaaaa");
-            rb.gravityScale = 4.99f;
+            print("hit");
             isLerping = false;
             scytheSc.followPlayer = true;
             scytheSc.aim = true;
             isDashing = false;
-           // throwing = false;
+           // throwing = false
         }
 
         if (collision.gameObject.tag == "Dialogue")
