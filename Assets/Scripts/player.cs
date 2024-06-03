@@ -241,7 +241,7 @@ public class player : MonoBehaviour
 
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var allowedPos = mousePos - initialPos;
-            allowedPos = Vector3.ClampMagnitude(allowedPos, 3f);
+            allowedPos = Vector3.ClampMagnitude(allowedPos, 1.5f);
             cursor.transform.position = initialPos + allowedPos;
 
             
@@ -335,22 +335,7 @@ public class player : MonoBehaviour
                     isThrown2 = false;
                     throwTimer = 0;
                 }
-            }
-            //if (isLerping)
-            //{               
-            //    rb.gravityScale = 0f;
-            //   // rb.velocity = new Vector2(scythe.transform.position.x * (40 * Time.deltaTime), scythe.transform.position.y * (40 * Time.deltaTime));
-            //    rb.AddForce(playerTransform.position);
-            //   // transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
-            //    //use physics to move player towards scythe!!!!!!!!!!!!
-            //}
-            //else
-            //{
-            //    //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
-            //    rb.gravityScale = 4.99f;
-            //}
-
-            
+            }            
         }
     }
     void FixedUpdate()
@@ -368,21 +353,8 @@ public class player : MonoBehaviour
         if (disabled)
         {
             anim.Play("idle");
-            rb.velocity *= new Vector2(0f,1f);
-            
+            rb.velocity *= new Vector2(0f,1f);           
         }
-
-        //if (isLerping)
-        //{
-        //    //rb.gravityScale = 0f;
-        //    //var target = scythe.transform.position - transform.position;
-        //    //rb.velocity = new Vector2((target.x * (1000 * Time.deltaTime)), (target.y * (1000 * Time.deltaTime)));
-        //}
-        //else
-        //{
-        //    //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
-        //    rb.gravityScale = 4.99f;
-        //}
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -401,26 +373,7 @@ public class player : MonoBehaviour
             hit = true;
             //  hpbar.GetComponent<Animator>().SetBool("isHit", true);
         }
-
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-
-    }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    GameObject hpbar = GameObject.Find("HP");
-    // //   if (collision.gameObject.tag == "flag") SceneManager.LoadScene("scene_2");
-    // //   if (collision.gameObject.tag == "flag2") SceneManager.LoadScene("scene_3");
-
-    //    if (collision.gameObject.tag == "Bullet" && hit == false)
-    //    {
-    //        hp--;
-    //        print("///////" + hp);
-    //        hit = true;
-    //        //  hpbar.GetComponent<Animator>().SetBool("isHit", true);
-    //    }
-    //}
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (isLerping && collision.gameObject.tag == "collisonSprite")
