@@ -372,17 +372,17 @@ public class player : MonoBehaviour
             
         }
 
-        if (isLerping)
-        {
-            //rb.gravityScale = 0f;
-            //var target = scythe.transform.position - transform.position;
-            //rb.velocity = new Vector2((target.x * (1000 * Time.deltaTime)), (target.y * (1000 * Time.deltaTime)));
-        }
-        else
-        {
-            //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
-            rb.gravityScale = 4.99f;
-        }
+        //if (isLerping)
+        //{
+        //    //rb.gravityScale = 0f;
+        //    //var target = scythe.transform.position - transform.position;
+        //    //rb.velocity = new Vector2((target.x * (1000 * Time.deltaTime)), (target.y * (1000 * Time.deltaTime)));
+        //}
+        //else
+        //{
+        //    //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
+        //    rb.gravityScale = 4.99f;
+        //}
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
