@@ -32,7 +32,7 @@ public class player : MonoBehaviour
     public scytheScript2 scytheSc2;
     
     public LayerMask groundLayer;
-    public bool isGrounded, isThrown, isThrown2;
+    public bool /*isGrounded*/isThrown, isThrown2;
     SpriteRenderer playerSprite;
 
     public Animator anim;
@@ -153,23 +153,23 @@ public class player : MonoBehaviour
             }
         }
 
-        if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, 
-            this.GetComponent<BoxCollider2D>().bounds.center.y), 
-            this.GetComponent<BoxCollider2D>().size, 0, groundLayer)) isGrounded = true;
+        //if (Physics2D.OverlapBox(new Vector2(this.GetComponent<BoxCollider2D>().bounds.center.x, 
+        //    this.GetComponent<BoxCollider2D>().bounds.center.y), 
+        //    this.GetComponent<BoxCollider2D>().size, 0, groundLayer)) isGrounded = true;
 
-        else isGrounded = false;
-        if (!isGrounded)
-        {
-            moving = false;
-        }
-        if (Dialogue.activeSelf == true)
-        {
-            disabled = true;
-        }
-        else
-        {
-            disabled = false;
-        }
+        //else isGrounded = false;
+        //if (!isGrounded)
+        //{
+        //    moving = false;
+        //}
+        //if (Dialogue.activeSelf == true)
+        //{
+        //    disabled = true;
+        //}
+        //else
+        //{
+        //    disabled = false;
+        //}
 
         scytheSc.stop = false;
 
@@ -182,7 +182,7 @@ public class player : MonoBehaviour
                 D = true;
 
                 
-                if (isGrounded && !Input.GetKey(KeyCode.A))
+                if (/*isGrounded*/ /*&&*/ !Input.GetKey(KeyCode.A))
                 {
                     moving = true;
                     animTimer += Time.deltaTime;
@@ -195,7 +195,7 @@ public class player : MonoBehaviour
                 A = true;
 
                 
-                if (isGrounded && !Input.GetKey(KeyCode.D))
+                if (/*isGrounded*/ /*&&*/ !Input.GetKey(KeyCode.D))
                 {
                     moving = true;
                     animTimer += Time.deltaTime;
@@ -232,11 +232,13 @@ public class player : MonoBehaviour
             {
                 if (rb.velocity.x >= 0.01f && !isThrown || rb.velocity.x <= -0.001f && !isThrown)
                 {
-                    if (isGrounded)
-                    {
-                        anim.SetBool("run", true);
-                        anim.SetBool("idle", false);
-                    }
+                    anim.SetBool("run", true);
+                    anim.SetBool("idle", false);
+                    //if (isGrounded)
+                    //{
+                    //    anim.SetBool("run", true);
+                    //    anim.SetBool("idle", false);
+                    //}
                 }
                 else if (rb.velocity.x == 0f && isThrown == false) /*if(xInput == 0)*/
                 {
@@ -270,11 +272,13 @@ public class player : MonoBehaviour
                     anim.SetBool("throw", true);
                     scytheSc.anim.SetBool("scythe", true);
                     isLerping = false;
-                    if (isGrounded)
-                    {
-                        scytheSc.activate = true;
-                        isDashing = true;
-                    }
+                    //if (isGrounded)
+                    //{
+                    //    scytheSc.activate = true;
+                    //    isDashing = true;
+                    //}
+                    scytheSc.activate = true;
+                    isDashing = true;
 
                     isThrown = false;
                     anim.SetBool("throw", false);
@@ -320,7 +324,7 @@ public class player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isGrounded && isLerping == false) 
+        if (/*isGrounded*/ /*&&*/ isLerping == false) 
         {
             rb.velocity = new Vector2(xInput * playerSpeed, rb.velocity.y); // lateral movement
         }
