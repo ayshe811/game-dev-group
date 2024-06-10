@@ -340,17 +340,20 @@ public class player : MonoBehaviour
                     throwTimer = 0;
                 }
             }
-            if (isLerping)
-            {               
-                rb.gravityScale = 0f;
-                transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
-                //use physics to move player towards scythe!!!!!!!!!!!!
-            }
-            else
-            {
-                //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
-                rb.gravityScale = 4.99f;
-            }
+            //if (isLerping)
+            //{               
+            //    rb.gravityScale = 0f;
+            //   // transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
+            //    //use physics to move player towards scythe!!!!!!!!!!!!
+
+            //    Vector2 target = scythe.transform.position - transform.position;
+            //    rb.velocity = new Vector2((target.x * 10), (target.y * 10));
+            //}
+            //else
+            //{
+            //    //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
+            //    rb.gravityScale = 4.99f;
+            //}
 
             
         }
@@ -373,6 +376,20 @@ public class player : MonoBehaviour
             anim.Play("idle");
             rb.velocity *= new Vector2(0f,1f);
             
+        }
+        if (isLerping)
+        {
+            rb.gravityScale = 0f;
+            // transform.position = Vector2.Lerp(transform.position, scythe.transform.position, 10 * Time.deltaTime);
+            //use physics to move player towards scythe!!!!!!!!!!!!
+
+            Vector2 target = scythe.transform.position - transform.position;
+            rb.velocity = new Vector2((target.x * 10), (target.y * 10));
+        }
+        else
+        {
+            //rb.gravityScale = Mathf.Lerp(0, 4.99f, 0.1f);
+            rb.gravityScale = 4.99f;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
