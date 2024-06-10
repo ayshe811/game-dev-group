@@ -32,7 +32,7 @@ public class player : MonoBehaviour
     public scytheScript2 scytheSc2;
     
     public LayerMask groundLayer;
-    public bool /*isGrounded*/isThrown, isThrown2;
+    public bool /*isGrounded*/isThrown, isThrown2, slowMo;
     SpriteRenderer playerSprite;
 
     public Animator anim;
@@ -57,6 +57,8 @@ public class player : MonoBehaviour
     public bool hit = false;
     public float invince;
     public float deathtimer;
+
+    float slowTimer;
 
     // Start is called before the first frame update
 
@@ -252,6 +254,7 @@ public class player : MonoBehaviour
                 {
                     playerSprite.sprite = idleSprite;
                     isThrown = true;
+               //     slowMo = false;
                     anim.SetBool("throw", true);
                     anim.SetBool("idle", false);
                     anim.SetBool("run", false);
@@ -340,6 +343,19 @@ public class player : MonoBehaviour
             anim.Play("idle");
             rb.velocity *= new Vector2(0f,1f);           
         }
+
+        //if (slowMo)
+        //{
+        //    Time.timeScale = 0.27f;
+        //    slowTimer += Time.deltaTime;
+
+        //    if (slowTimer >= 1f)
+        //    {
+        //        slowMo = false;
+        //        slowTimer = 0;
+        //    }
+        //}
+        //else Time.timeScale = 1;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -358,6 +374,8 @@ public class player : MonoBehaviour
             hit = true;
             //  hpbar.GetComponent<Animator>().SetBool("isHit", true);
         }
+
+       // if (collision.gameObject.tag == "platform") slowMo = false;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -368,7 +386,9 @@ public class player : MonoBehaviour
             scytheSc.followPlayer = true;
             scytheSc.aim = true;
             isDashing = false;
-           // throwing = false
+            // throwing = false
+
+           // slowMo = true;
         }
 
         if (collision.gameObject.tag == "Dialogue")
